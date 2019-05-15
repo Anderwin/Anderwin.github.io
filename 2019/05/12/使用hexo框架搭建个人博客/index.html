@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Anderwin的个人博客">
 <meta property="og:description" content="一. 准备工作 1.下载安装nodejs,网址 https://nodejs.org   2.切换root账号，查看node与npm是否安装正常？      123sudo sunode -vnpm -v">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-15T16:00:55.488Z">
+<meta property="og:updated_time" content="2019-05-15T16:15:01.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo框架搭建个人博客">
 <meta name="twitter:description" content="一. 准备工作 1.下载安装nodejs,网址 https://nodejs.org   2.切换root账号，查看node与npm是否安装正常？      123sudo sunode -vnpm -v">
@@ -196,7 +196,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">321字</span>
+        <span class="post-count">385字</span>
       </span>
     </span>
 
@@ -253,6 +253,12 @@
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br><span class="line">ls</span><br><span class="line">vim _config.yml </span><br><span class="line">#################</span><br><span class="line">theme: yilia</span><br><span class="line">#################</span><br></pre></td></tr></table></figure>
 <p>4.重新配置后推到远端  </p>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g	</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>4.域名解析</p>
+<ul>
+<li>在<strong>博客</strong>的<code>source</code>文件夹下建立一个<code>CNAME</code>的文件</li>
+<li>内容写入你的域名信息，比如我这里是 anderwin.top</li>
+<li>发布到<code>github</code>即可，到注册的域名商把购买的域名使用CNAME解析到github。</li>
+</ul>
 
       
 
