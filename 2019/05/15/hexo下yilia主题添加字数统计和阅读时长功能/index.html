@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Anderwin的个人博客">
 <meta property="og:description" content="安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令  1npm i –save hexo-wordcount">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-18T02:36:12.049Z">
+<meta property="og:updated_time" content="2019-05-18T02:53:03.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo下yilia主题添加字数统计和阅读时长功能">
 <meta name="twitter:description" content="安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令  1npm i –save hexo-wordcount">
@@ -193,7 +193,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">499字</span>
+        <span class="post-count">461字</span>
       </span>
     </span>
 
@@ -225,26 +225,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li>安装 hexo-wordcount<br>在博客目录下打开Git Bash Here 输入命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i –save hexo-wordcount</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<ol start="2">
-<li>文件配置<br>在theme\yilia\layout_partial\post下创建word.ejs文件：</li>
-</ol>
+<li><p>安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i –save hexo-wordcount</span><br></pre></td></tr></table></figure>
+ <a id="more"></a></li>
+<li><p>文件配置在theme\yilia\layout_partial\post下创建word.ejs文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;margin-top:10px;&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;post-time&quot;&gt;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fa fa-keyboard-o&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span class=&quot;post-meta-item-text&quot;&gt;  字数统计: &lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;post-count&quot;&gt;&lt;%= wordcount(post.content) %&gt;字&lt;/span&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line"></span><br><span class="line">    &lt;span class=&quot;post-time&quot;&gt;</span><br><span class="line">      &amp;nbsp; | &amp;nbsp;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fa fa-hourglass-half&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span class=&quot;post-meta-item-text&quot;&gt;  阅读时长: &lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;post-count&quot;&gt;&lt;%= min2read(post.content) %&gt;分&lt;/span&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>然后在 themes/yilia/layout/_partial/article.ejs中添加</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;article-inner&quot;&gt;</span><br><span class="line">    &lt;% if (post.link || post.title)&#123; %&gt;</span><br><span class="line">      &lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/title&apos;, &#123;class_name: &apos;article-title&apos;&#125;) %&gt;</span><br><span class="line">        &lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/date&apos;, &#123;class_name: &apos;archive-article-date&apos;, date_format: null&#125;) %&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        &lt;!-- 需要添加的位置 --&gt;</span><br><span class="line">        &lt;!-- 开始添加字数统计--&gt;</span><br><span class="line">        &lt;% if(theme.word_count &amp;&amp; !post.no_word_count)&#123;%&gt;</span><br><span class="line">          &lt;%- partial(&apos;post/word&apos;) %&gt;</span><br><span class="line">          &lt;% &#125; %&gt;</span><br><span class="line">        &lt;!-- 添加完成 --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line">      &lt;/header&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>添加阅读统计：使用不蒜子统计,修改<code>hexo\themes\yilia\layout_partial\article.ejs</code>,在<code>&lt;%- partial(‘post/tag’) %&gt;</code> 后或者在字数统计里添加，只是显示的位置不一样，如下修改代码:</li>
-</ol>
+</li>
+<li><p>然后在 themes/yilia/layout/_partial/article.ejs中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;article-inner&quot;&gt;</span><br><span class="line">    &lt;% if (post.link || post.title)&#123; %&gt;</span><br><span class="line">      &lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/title&apos;, &#123;class_name: &apos;article-title&apos;&#125;) %&gt;</span><br><span class="line">        &lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/date&apos;, &#123;class_name: &apos;archive-article-date&apos;, date_format: null&#125;) %&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  &lt;!-- 需要添加的位置 --&gt;</span><br><span class="line">  &lt;!-- 开始添加字数统计--&gt;</span><br><span class="line">  &lt;% if(theme.word_count &amp;&amp; !post.no_word_count)&#123;%&gt;</span><br><span class="line">    &lt;%- partial(&apos;post/word&apos;) %&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">  &lt;!-- 添加完成 --&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/header&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加阅读统计：使用不蒜子统计,修改</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开始添加字数统计--&gt;</span><br><span class="line">&lt;% if(theme.word_count &amp;&amp; !post.no_word_count)&#123;%&gt;</span><br><span class="line">  &lt;%- partial(&apos;post/word&apos;) %&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 开始添加阅读量统计--&gt;</span><br><span class="line">  &lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">    阅读统计：&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;!-- 结束添加--&gt;</span><br><span class="line"></span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;!-- 添加完成 --&gt;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>开启功能<br>在站点的_config.yml中添加下面代码</li>
-</ol>
+</li>
+<li><p>开启功能在站点的_config.yml中添加下面代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 是否开启字数统计</span><br><span class="line">#不需要使用，直接设置值为false，或注释掉</span><br><span class="line">word_count: True</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
 
@@ -552,11 +549,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">收藏</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">收藏</a>
               </li>
             
             <div class="clearfix"></div>
