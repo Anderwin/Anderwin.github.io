@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://anderwin.top">
   <title>hexo yilia接入valine评论系统 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 最近搭建博客的时候 想要接入一个评论功能,查了很多资料，做个记录方便自己方便他人  多说（现在已经不能用）  网易云跟帖（现在已经不能用）  畅言（需要提供备案号）  来必力（LiveRe）  Disqus Hypercomments   Valine  最后选用valine这个插件，就因为它简洁">
+  <meta name="description" content="前言 搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。1.多说（现在已经不能用）2.网易云跟帖（现在已经不能用）3.畅言（需要提供备案号）4.来必力（LiveRe）5.Disqus6.Hypercomments7.Valine最后选用valine这个插件，就因为它简洁">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo yilia接入valine评论系统">
 <meta property="og:url" content="http://anderwin.top/2019/05/18/hexo-yilia接入valine评论系统/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
-<meta property="og:description" content="前言 最近搭建博客的时候 想要接入一个评论功能,查了很多资料，做个记录方便自己方便他人  多说（现在已经不能用）  网易云跟帖（现在已经不能用）  畅言（需要提供备案号）  来必力（LiveRe）  Disqus Hypercomments   Valine  最后选用valine这个插件，就因为它简洁">
+<meta property="og:description" content="前言 搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。1.多说（现在已经不能用）2.网易云跟帖（现在已经不能用）3.畅言（需要提供备案号）4.来必力（LiveRe）5.Disqus6.Hypercomments7.Valine最后选用valine这个插件，就因为它简洁">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-18T07:36:53.999Z">
+<meta property="og:updated_time" content="2019-05-18T08:46:43.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo yilia接入valine评论系统">
-<meta name="twitter:description" content="前言 最近搭建博客的时候 想要接入一个评论功能,查了很多资料，做个记录方便自己方便他人  多说（现在已经不能用）  网易云跟帖（现在已经不能用）  畅言（需要提供备案号）  来必力（LiveRe）  Disqus Hypercomments   Valine  最后选用valine这个插件，就因为它简洁">
+<meta name="twitter:description" content="前言 搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。1.多说（现在已经不能用）2.网易云跟帖（现在已经不能用）3.畅言（需要提供备案号）4.来必力（LiveRe）5.Disqus6.Hypercomments7.Valine最后选用valine这个插件，就因为它简洁">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -193,7 +193,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">586字</span>
+        <span class="post-count">726字</span>
       </span>
     </span>
 
@@ -202,7 +202,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -225,33 +225,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><hr>
-<p>最近搭建博客的时候 想要接入一个评论功能,查了很多资料，做个记录方便自己方便他人</p>
-<ol>
-<li><p>多说（现在已经不能用）</p>
-</li>
-<li><p>网易云跟帖（现在已经不能用）</p>
-</li>
-<li><p>畅言（需要提供备案号）</p>
-</li>
-<li><p>来必力（LiveRe）</p>
-</li>
-<li><p>Disqus Hypercomments </p>
-</li>
-<li><p>Valine </p>
-<p>最后选用valine这个插件，就因为它简洁</p>
-<a id="more"></a>
-</li>
-</ol>
+<p>搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。<br>1.多说（现在已经不能用）<br>2.网易云跟帖（现在已经不能用）<br>3.畅言（需要提供备案号）<br>4.来必力（LiveRe）<br>5.Disqus<br>6.Hypercomments<br>7.Valine<br>最后选用valine这个插件，就因为它简洁<br><a id="more"></a></p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.去valine注册一个账号<a href="https://leancloud.cn/dashboard/login.html#/signup，注册成功之后创建一个免费的应用" target="_blank" rel="noopener">https://leancloud.cn/dashboard/login.html#/signup，注册成功之后创建一个免费的应用</a><br>2.创建好之后进入创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的appid和appkey<br>3.在应用里面的安全中心加入自己的域名, 比如我的域名是 <a href="https://www.anderwin.top" target="_blank" rel="noopener">https://www.anderwin.top</a></p>
 <h3 id="加入代码"><a href="#加入代码" class="headerlink" title="加入代码"></a>加入代码</h3><p>1.在hexo加入valine的评论配置</p>
 <p>加入代码的文件在hexo的 themes/yilia/_config.yml 加到文件的最后即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">valine: </span><br><span class="line">  appid: 5Luh2LTjNL7BdW3tUc6gN2Yb-gzGzoHsz #Leancloud应用的appId</span><br><span class="line">  appkey: ySLSX2eHHgjme7X8QzLU6YYL #Leancloud应用的appKey</span><br><span class="line">  verify: false #验证码</span><br><span class="line">  notify: false #评论回复提醒</span><br><span class="line">  avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line">  placeholder: ヾﾉ≧∀≦)o来啊，快活啊! #评论框占位符</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">valine: </span><br><span class="line">  appid: 5Luh2LTjNL7BdW3tUc6gN2Yb-gzGzoHsz #Leancloud应用的appId</span><br><span class="line">  appkey: ySLSX2eHHgjme7X8QzLU6YYL #Leancloud应用的appKey</span><br><span class="line">  verify: false #验证码</span><br><span class="line">  notify: false #评论回复提醒</span><br><span class="line">  avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line">  placeholder: ヾﾉ≧∀≦)o来啊，快活啊! #评论框占位符</span><br><span class="line">  pageSize: 10</span><br></pre></td></tr></table></figure>
 <p>2.然后在hexo的 themes/yilia/layout/_partial/article.ejs加入代码</p>
 <blockquote>
-<p>注意这段代码需要放置到&lt;% if (!index &amp;&amp; post.comments){ %&gt;中, 这样首页就不会出现评论栏.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">  &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">      @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注意这段代码需要放置到&lt;% if (!index &amp;&amp; post.comments){ %&gt;中, 这样首页就不会出现评论栏.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">        .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">        @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">      &lt;/style&gt;</span><br><span class="line">      &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">        key: post.slug,</span><br><span class="line">        title: post.title,</span><br><span class="line">        url: config.url+url_for(post.path)</span><br><span class="line">        &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<p>或者直接把下面这段放到文件的最后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index)&#123; %&gt;</span><br><span class="line">	&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">	    &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">	      &lt;style&gt;</span><br><span class="line">	        .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">	        @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">	      &lt;/style&gt;</span><br><span class="line">	      &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">	        key: post.slug,</span><br><span class="line">	        title: post.title,</span><br><span class="line">	        url: config.url+url_for(post.path)</span><br><span class="line">	        &#125;) %&gt;</span><br><span class="line">	  &lt;/section&gt;</span><br><span class="line">	&lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
 <p>3.在hexo的 themes/yilia/layout/_partial/post中创建valine.ejs文件并加入代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">   var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &apos;#vcomment&apos;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;//unpkg.com/valine/dist/Valine.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">    var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    new Valine(&#123;</span><br><span class="line">        av: AV,</span><br><span class="line">        el: &apos;#vcomment&apos;,</span><br><span class="line">        notify: notify,</span><br><span class="line">        app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">        app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">        placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">        avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;,</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>4.最后重新部署一下, 就能看到效果了</p>
 
       
