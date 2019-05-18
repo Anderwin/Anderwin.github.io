@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://anderwin.top">
   <title>hexo下yilia主题添加字数统计和阅读时长功能 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令 1npm i –save hexo-wordcount">
+  <meta name="description" content="安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令  1npm i –save hexo-wordcount">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo下yilia主题添加字数统计和阅读时长功能">
 <meta property="og:url" content="http://anderwin.top/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
-<meta property="og:description" content="1.安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令 1npm i –save hexo-wordcount">
+<meta property="og:description" content="安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令  1npm i –save hexo-wordcount">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-18T02:29:53.256Z">
+<meta property="og:updated_time" content="2019-05-18T02:33:26.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo下yilia主题添加字数统计和阅读时长功能">
-<meta name="twitter:description" content="1.安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令 1npm i –save hexo-wordcount">
+<meta name="twitter:description" content="安装 hexo-wordcount在博客目录下打开Git Bash Here 输入命令  1npm i –save hexo-wordcount">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -193,7 +193,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">501字</span>
+        <span class="post-count">499字</span>
       </span>
     </span>
 
@@ -224,10 +224,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.安装 hexo-wordcount<br>在博客目录下打开Git Bash Here 输入命令</p>
+        <ol>
+<li>安装 hexo-wordcount<br>在博客目录下打开Git Bash Here 输入命令</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i –save hexo-wordcount</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>2.文件配置<br>在theme\yilia\layout_partial\post下创建word.ejs文件：</p>
+<ol start="2">
+<li>文件配置<br>在theme\yilia\layout_partial\post下创建word.ejs文件：</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;margin-top:10px;&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;post-time&quot;&gt;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fa fa-keyboard-o&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span class=&quot;post-meta-item-text&quot;&gt;  字数统计: &lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;post-count&quot;&gt;&lt;%= wordcount(post.content) %&gt;字&lt;/span&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line"></span><br><span class="line">    &lt;span class=&quot;post-time&quot;&gt;</span><br><span class="line">      &amp;nbsp; | &amp;nbsp;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fa fa-hourglass-half&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span class=&quot;post-meta-item-text&quot;&gt;  阅读时长: &lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;post-count&quot;&gt;&lt;%= min2read(post.content) %&gt;分&lt;/span&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>然后在 themes/yilia/layout/_partial/article.ejs中添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;article-inner&quot;&gt;</span><br><span class="line">    &lt;% if (post.link || post.title)&#123; %&gt;</span><br><span class="line">      &lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/title&apos;, &#123;class_name: &apos;article-title&apos;&#125;) %&gt;</span><br><span class="line">        &lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/date&apos;, &#123;class_name: &apos;archive-article-date&apos;, date_format: null&#125;) %&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        &lt;!-- 需要添加的位置 --&gt;</span><br><span class="line">        &lt;!-- 开始添加字数统计--&gt;</span><br><span class="line">        &lt;% if(theme.word_count &amp;&amp; !post.no_word_count)&#123;%&gt;</span><br><span class="line">          &lt;%- partial(&apos;post/word&apos;) %&gt;</span><br><span class="line">          &lt;% &#125; %&gt;</span><br><span class="line">        &lt;!-- 添加完成 --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line">      &lt;/header&gt;</span><br></pre></td></tr></table></figure>
@@ -538,11 +542,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
