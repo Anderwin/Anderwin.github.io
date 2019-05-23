@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://anderwin.top">
   <title>测试用例那点事 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试用例那点事 用例设计 前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
+  <meta name="description" content="测试用例那点事 用例设计前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
 <meta name="keywords" content="软件测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="测试用例那点事">
 <meta property="og:url" content="http://anderwin.top/2019/05/23/测试用例那点事/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
-<meta property="og:description" content="测试用例那点事 用例设计 前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
+<meta property="og:description" content="测试用例那点事 用例设计前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-23T13:41:52.323Z">
+<meta property="og:updated_time" content="2019-05-23T13:46:22.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试用例那点事">
-<meta name="twitter:description" content="测试用例那点事 用例设计 前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
+<meta name="twitter:description" content="测试用例那点事 用例设计前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -224,11 +224,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试用例那点事</p>
-<p>用例设计</p>
-<p>前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。<br><a id="more"></a><br>编写测试用例的两个途径<br> 1 先有用例设计，从整个产品/项目出发，先确定测试范围、测试目标，再细化范围到具体对象-&gt;具体功能，确定设计用例技术和测试方法，再来编写用例。<br> 2 测试执行后-通过Bug反推 修改补充用例。两者相结合才会产出一份漂亮且有效的测试用例.</p>
-<p>设计原则</p>
-<ul>
+        <h3 id="测试用例那点事"><a href="#测试用例那点事" class="headerlink" title="测试用例那点事"></a>测试用例那点事</h3><hr>
+<h4 id="用例设计"><a href="#用例设计" class="headerlink" title="用例设计"></a>用例设计</h4><p>前提，尽可能多的站在不同的角度分析问题。比如在运营维护、用户等角度来看待软件，分别针对性的设计测试用例，同时使用一些设计方法。<br><a id="more"></a><br>编写测试用例的两个途径<br> 1 先有用例设计，从整个产品/项目出发，先确定测试范围、测试目标，再细化范围到具体对象-&gt;具体功能，确定设计用例技术和测试方法，再来编写用例。<br> 2 测试执行后-通过Bug反推 修改补充用例。两者相结合才会产出一份漂亮且有效的测试用例.</p>
+<h4 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h4><ul>
 <li><p>完整覆盖需求</p>
 </li>
 <li><p>有清晰的输入输出</p>
@@ -243,8 +241,7 @@
 </li>
 <li>每条用例都有通过的标准</li>
 </ul>
-<p>用例具体内容</p>
-<p>1 用例编号<br>全局唯一，我们可以通过代号快速找到测试用例。<br>格式是：项目名模块名001，可以通过编号快速知道一个项目有多少用例，一个模块有多少用例。</p>
+<h4 id="用例具体内容"><a href="#用例具体内容" class="headerlink" title="用例具体内容"></a>用例具体内容</h4><p>1 用例编号<br>全局唯一，我们可以通过代号快速找到测试用例。<br>格式是：项目名模块名001，可以通过编号快速知道一个项目有多少用例，一个模块有多少用例。</p>
 <p>2 用例标题<br> 目的:概述测试用例意图<br> 书写方式：一句完整的话（不超过30个汉字）；功能简报形</p>
 <pre><code>例：电影详情页-返回
 例：栏目-发布
@@ -255,8 +252,7 @@
 </code></pre><p>4 测试步骤<br>书写要求：有顺序的可执行的操作</p>
 <p>5 预期结果<br>书写要求：和测试步骤中点一一对应,可检查</p>
 <p>6 测试数据<br>测试数据：测试时使用到的数据</p>
-<p>编写测试用例常见问题</p>
-<ul>
+<h4 id="编写测试用例常见问题"><a href="#编写测试用例常见问题" class="headerlink" title="编写测试用例常见问题"></a>编写测试用例常见问题</h4><ul>
 <li>用例标题意图不明确</li>
 <li>用例中引用其他用例</li>
 <li>用例中包含过多的细节</li>
@@ -402,7 +398,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用例那点事"><span class="toc-number">1.</span> <span class="toc-text">测试用例那点事</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例设计"><span class="toc-number">1.1.</span> <span class="toc-text">用例设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设计原则"><span class="toc-number">1.2.</span> <span class="toc-text">设计原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用例具体内容"><span class="toc-number">1.3.</span> <span class="toc-text">用例具体内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写测试用例常见问题"><span class="toc-number">1.4.</span> <span class="toc-text">编写测试用例常见问题</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -576,19 +572,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
