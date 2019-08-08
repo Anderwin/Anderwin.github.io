@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Anderwin的个人博客">
 <meta property="og:description" content="1.缺少MySQL-python-1.2.3.win32-py2.7.exe模块 2.mod_wsgi.so模块不可用 3.Aapache2.2配置文件格式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-08T16:14:08.337Z">
+<meta property="og:updated_time" content="2019-08-08T16:23:11.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows7_32 Apache2.2发布Django+Angular项目遇到的坑记录">
 <meta name="twitter:description" content="1.缺少MySQL-python-1.2.3.win32-py2.7.exe模块 2.mod_wsgi.so模块不可用 3.Aapache2.2配置文件格式">
@@ -199,7 +199,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">317字</span>
+        <span class="post-count">322字</span>
       </span>
     </span>
 
@@ -240,18 +240,11 @@
 <p>4）django-rest-framework-2.3.14 python setup.py install</p>
 <p>5）MySQL-python-1.2.3.win32-py2.7.exe</p>
 <p>6）httpd-2.2.25-win32-x86-openssl-0.9.8y.msi</p>
-<h3 id="二、修改配置文件Apache（Apache2-2-conf-httpd-conf）"><a href="#二、修改配置文件Apache（Apache2-2-conf-httpd-conf）" class="headerlink" title="二、修改配置文件Apache（Apache2.2\conf\httpd.conf）"></a>二、修改配置文件Apache（Apache2.2\conf\httpd.conf）</h3><ol>
-<li><p>安装mod_wsgi.so模块。方法：拷贝mod_wsgi.so到Apache安装目录下的modules    文件夹中，（如：D:\Apache2.2\modules下）</p>
-</li>
-<li><p>添加LoadModule wsgi_module modules/mod_wsgi.so</p>
-</li>
-<li><p>启用 Include conf/extra/httpd-vhosts.conf</p>
-</li>
-<li><p>关闭默认端口监听 # Listen 80</p>
-</li>
-<li><p>配置conf/extra/httpd-vhosts.conf文件</p>
-</li>
-</ol>
+<h3 id="二、修改配置文件Apache（Apache2-2-conf-httpd-conf）"><a href="#二、修改配置文件Apache（Apache2-2-conf-httpd-conf）" class="headerlink" title="二、修改配置文件Apache（Apache2.2\conf\httpd.conf）"></a>二、修改配置文件Apache（Apache2.2\conf\httpd.conf）</h3><p>1.安装mod_wsgi.so模块。方法：拷贝mod_wsgi.so到Apache安装目录下的modules    文件夹中，（如：D:\Apache2.2\modules下）</p>
+<p>2.添加LoadModule wsgi_module modules/mod_wsgi.so</p>
+<p>3.启用 Include conf/extra/httpd-vhosts.conf</p>
+<p>4.关闭默认端口监听 # Listen 80</p>
+<p>5.配置conf/extra/httpd-vhosts.conf文件</p>
 <p>​      后端配置信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Listen 8007</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost *:8007&gt;</span><br><span class="line"></span><br><span class="line">    WSGIScriptAlias / D:/PmsService/PmsService/wsgi.py</span><br><span class="line"></span><br><span class="line">    DocumentRoot &quot;D:/PmsService&quot;</span><br><span class="line"></span><br><span class="line">    ServerName www.PmsService.com </span><br><span class="line"></span><br><span class="line">    Alias /static D:/PmsService/static</span><br><span class="line"></span><br><span class="line">    &lt;Directory &quot;D:/PmsService/PmsService&quot;&gt; </span><br><span class="line"></span><br><span class="line">        Order allow,deny  </span><br><span class="line"></span><br><span class="line">        Allow from all</span><br><span class="line"></span><br><span class="line">    &lt;/Directory&gt;  </span><br><span class="line"></span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 <p>  前端配置信息</p>
@@ -573,19 +566,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">环境部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">环境部署</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
