@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://anderwin.top">
-  <title>hexo Yilia显示站点总访问量/单页面访问量 | Anderwin的个人博客</title>
+  <title>Docker基础学习笔记1 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="使用Docker能干什么？一句话总结: 一次封装，到处运行">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo Yilia显示站点总访问量&#x2F;单页面访问量">
-<meta property="og:url" content="http://anderwin.top/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/index.html">
+<meta property="og:title" content="Docker基础学习笔记1">
+<meta property="og:url" content="http://anderwin.top/2019/09/13/Docker基础学习笔记1/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
-<meta property="og:description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
+<meta property="og:description" content="使用Docker能干什么？一句话总结: 一次封装，到处运行">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-15T16:00:14.564Z">
+<meta property="og:image" content="http://anderwin.top/2019/09/13/Docker基础学习笔记1/docker能干什么.jpg">
+<meta property="og:image" content="http://anderwin.top/2019/09/13/Docker基础学习笔记1/whydocker.jpg">
+<meta property="og:updated_time" content="2019-09-13T02:01:08.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo Yilia显示站点总访问量&#x2F;单页面访问量">
-<meta name="twitter:description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
+<meta name="twitter:title" content="Docker基础学习笔记1">
+<meta name="twitter:description" content="使用Docker能干什么？一句话总结: 一次封装，到处运行">
+<meta name="twitter:image" content="http://anderwin.top/2019/09/13/Docker基础学习笔记1/docker能干什么.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -175,21 +178,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo yilia显示站点总访问量:单页面访问量" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Docker基础学习笔记1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo Yilia显示站点总访问量/单页面访问量
+      Docker基础学习笔记1
     </h1>
   
 
 
         
-        <a href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" class="archive-article-date">
-  	<time datetime="2019-05-15T12:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+        <a href="/2019/09/13/Docker基础学习笔记1/" class="archive-article-date">
+  	<time datetime="2019-09-13T01:56:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
        
         <!-- 开始添加字数统计-->
@@ -199,7 +202,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">572字</span>
+        <span class="post-count">825字</span>
       </span>
     </span>
 
@@ -230,25 +233,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。</p>
-<p>一、安装脚本（必选）<br>要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="使用Docker能干什么？"><a href="#使用Docker能干什么？" class="headerlink" title="使用Docker能干什么？"></a>使用Docker能干什么？</h2><p>一句话总结: <code>一次封装，到处运行</code></p>
 <a id="more"></a>
-<p>打开themes/你的主题/layout/_partial/footer.ejs添加上述脚本即可(放在最后即可)，当然你也可以添加到 header 中。</p>
-<p>二、安装标签（可选）<br>只需要复制相应的html标签到你的网站要显示访问量的位置即可。您可以随意更改不蒜子标签为自己喜欢的显示效果，内容参考第三部分扩展开发。根据你要显示内容的不同，这分几种情况。</p>
-<p>1、显示站点总访问量<br>要显示站点总访问量，复制以下代码添加到你需要显示的位置。有两种算法可选：</p>
-<p>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>打开themes/你的主题/layout/_partial/footer.ejs添加即可。</p>
-<p>2、显示单页面访问量<br>要显示每篇文章的访问量，复制以下代码添加到你需要显示的位置。</p>
-<p>算法：pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">  本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>代码中文字是可以修改的，只要保留id正确即可。</p>
-<blockquote>
-<p>注意使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常。</p>
-</blockquote>
+<p>docker特点</p>
+<ul>
+<li>灵活：即使是最复杂的应用也可以集装箱化。</li>
+<li>轻量级：容器利用并共享主机内核。</li>
+<li>可互换：您可以即时部署更新和升级。</li>
+<li>便携式：您可以在本地构建，部署到云，并在任何地方运行。</li>
+<li>可扩展：您可以增加并自动分发容器副本。</li>
+<li><p>可堆叠：您可以垂直和即时堆叠服务</p>
+</li>
+<li><p>快速，一致地交付您的应用程序</p>
+<p>  Docker允许开发人员使用提供应用程序和服务的本地容器在标准化环境中工作，从而简化了开发生命周期。容器非常适合持续集成和持续交付（CI / CD）工作流程。</p>
+<p>  请考虑以下示例场景：<br>  您的开发人员在本地编写代码并使用Docker容器与同事共享他们的工作。<br>  他们使用Docker将他们的应用程序推入测试环境并执行自动和手动测试。<br>  当开发人员发现错误时，他们可以在开发环境中修复它们，并将它们重新部署到测试环境中以进行测试和验证。<br>  测试完成后，获取客户的修复就像将更新的图像推送到生产环境一样简单。</p>
+</li>
+<li><p>响应式部署和扩展</p>
+<p>  Docker基于容器的平台允许高度可移植的工作负载。Docker容器可以在开发人员的本地笔记本电脑，数据中心的物理或虚拟机，云提供商或混合环境中运行。</p>
+<p>  Docker的可移植性和轻量级特性还使得可以轻松地动态管理工作负载，按照业务需求即时扩展或拆除应用程序和服务。</p>
+</li>
+<li><p>在同一硬件上运行更多工作负载</p>
+<p>  Docker轻巧而快速。它为基于管理程序的虚拟机提供了一种可行且经济高效的替代方案，因此您可以使用更多的计算容量来实现业务目标。Docker非常适合高密度环境以及需要用更少资源完成更多工作的中小型部署</p>
+</li>
+</ul>
+<p><img src="docker能干什么.jpg" alt="docker能干什么"></p>
+<p><img src="whydocker.jpg" alt="whydocker"></p>
+<h2 id="学习思路"><a href="#学习思路" class="headerlink" title="学习思路"></a>学习思路</h2><p>最好的学习教程：官方文档 <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">https://docs.docker.com/get-started/</a></p>
+<p>加深理解基本概念，二手知识：<a href="https://www.bilibili.com/video/av27122140/?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/av27122140/?p=1</a></p>
+<p><code>学习思路：理解基本概念---熟悉基本操作——实战应用----掌握基本概念----熟练基本操作</code></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>镜像 、容器、仓库、Dockerfile、容器卷</p>
+<h2 id="安装docke"><a href="#安装docke" class="headerlink" title="安装docke"></a>安装docke</h2><h2 id="常用操作命令"><a href="#常用操作命令" class="headerlink" title="常用操作命令"></a>常用操作命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">## List Docker CLI commands </span><br><span class="line"># 列出Docker CLI命令</span><br><span class="line">docker</span><br><span class="line">docker container --help</span><br><span class="line"></span><br><span class="line">## Display Docker version and info </span><br><span class="line"># 显示Docker版本和信息</span><br><span class="line">docker --version</span><br><span class="line">docker version</span><br><span class="line">docker info</span><br><span class="line"></span><br><span class="line">## Execute Docker image </span><br><span class="line"># 执行Docker镜像</span><br><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">## List Docker images </span><br><span class="line"># 列出Docker镜像</span><br><span class="line">docker image ls</span><br><span class="line"></span><br><span class="line">## List Docker containers (running, all, all in quiet mode) </span><br><span class="line"># 列出Docker容器（运行，全部，全部处于安静模式）</span><br><span class="line">docker container ls</span><br><span class="line">docker container ls --all</span><br><span class="line">docker container ls -aq</span><br></pre></td></tr></table></figure>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>容器化使<a href="https://www.docker.com/solutions/cicd" target="_blank" rel="noopener">CI / CD</a>无缝。例如：</p>
+<ul>
+<li>应用程序没有系统依赖性</li>
+<li>可以将更新推送到分布式应用程序的任何部分</li>
+<li>资源密度可以优化。</li>
+</ul>
+<p>使用Docker，扩展应用程序是一个新的可执行文件，而不是运行繁重的VM主机。</p>
 
       
       
@@ -288,7 +309,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -344,7 +365,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/09/13/Docker基础学习笔记1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +379,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/13/Docker基础学习笔记2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo下yilia主题添加字数统计和阅读时长功能
+          Docker基础学习笔记2
         
       </div>
     </a>
   
   
-    <a href="/2019/05/13/有效沟通/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">有效沟通</div>
+    <a href="/2019/09/13/Docker安装卸载/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker安装卸载</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Docker能干什么？"><span class="toc-number">1.</span> <span class="toc-text">使用Docker能干什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习思路"><span class="toc-number">2.</span> <span class="toc-text">学习思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">3.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装docke"><span class="toc-number">4.</span> <span class="toc-text">安装docke</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用操作命令"><span class="toc-number">5.</span> <span class="toc-text">常用操作命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">6.</span> <span class="toc-text">结论</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://anderwin.top">
-  <title>hexo Yilia显示站点总访问量/单页面访问量 | Anderwin的个人博客</title>
+  <title>Docker基础学习笔记2 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="使用 Dockerfile定义容器Dockerfile定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期Dockerfile在此处定义的应用程序的构建 在其运行的任何位置都完全相同。">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo Yilia显示站点总访问量&#x2F;单页面访问量">
-<meta property="og:url" content="http://anderwin.top/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/index.html">
+<meta property="og:title" content="Docker基础学习笔记2">
+<meta property="og:url" content="http://anderwin.top/2019/09/13/Docker基础学习笔记2/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
-<meta property="og:description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
+<meta property="og:description" content="使用 Dockerfile定义容器Dockerfile定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期Dockerfile在此处定义的应用程序的构建 在其运行的任何位置都完全相同。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-15T16:00:14.564Z">
+<meta property="og:image" content="http://anderwin.top/2019/09/13/Docker基础学习笔记2/dockerfile关键字.jpg">
+<meta property="og:updated_time" content="2019-09-13T02:08:16.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo Yilia显示站点总访问量&#x2F;单页面访问量">
-<meta name="twitter:description" content="普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。 一、安装脚本（必选）要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。 12&amp;lt;script async src=&amp;quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;">
+<meta name="twitter:title" content="Docker基础学习笔记2">
+<meta name="twitter:description" content="使用 Dockerfile定义容器Dockerfile定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期Dockerfile在此处定义的应用程序的构建 在其运行的任何位置都完全相同。">
+<meta name="twitter:image" content="http://anderwin.top/2019/09/13/Docker基础学习笔记2/dockerfile关键字.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -175,21 +177,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo yilia显示站点总访问量:单页面访问量" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Docker基础学习笔记2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo Yilia显示站点总访问量/单页面访问量
+      Docker基础学习笔记2
     </h1>
   
 
 
         
-        <a href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" class="archive-article-date">
-  	<time datetime="2019-05-15T12:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+        <a href="/2019/09/13/Docker基础学习笔记2/" class="archive-article-date">
+  	<time datetime="2019-09-13T02:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
        
         <!-- 开始添加字数统计-->
@@ -199,7 +201,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">572字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -208,7 +210,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">7分</span>
       </span>
     </span>
 </div>
@@ -230,25 +232,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>普通用户只需两步走：一行脚本+一行标签，搞定一切。追求极致的用户可以进行任意DIY。</p>
-<p>一、安装脚本（必选）<br>要使用不蒜子必须在页面中引入busuanzi.js，目前最新版如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="使用-Dockerfile定义容器"><a href="#使用-Dockerfile定义容器" class="headerlink" title="使用 Dockerfile定义容器"></a>使用 <code>Dockerfile</code>定义容器</h2><p><code>Dockerfile</code>定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期<code>Dockerfile</code>在此处定义的应用程序的构建 在其运行的任何位置都完全相同。</p>
 <a id="more"></a>
-<p>打开themes/你的主题/layout/_partial/footer.ejs添加上述脚本即可(放在最后即可)，当然你也可以添加到 header 中。</p>
-<p>二、安装标签（可选）<br>只需要复制相应的html标签到你的网站要显示访问量的位置即可。您可以随意更改不蒜子标签为自己喜欢的显示效果，内容参考第三部分扩展开发。根据你要显示内容的不同，这分几种情况。</p>
-<p>1、显示站点总访问量<br>要显示站点总访问量，复制以下代码添加到你需要显示的位置。有两种算法可选：</p>
-<p>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>打开themes/你的主题/layout/_partial/footer.ejs添加即可。</p>
-<p>2、显示单页面访问量<br>要显示每篇文章的访问量，复制以下代码添加到你需要显示的位置。</p>
-<p>算法：pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">  本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>代码中文字是可以修改的，只要保留id正确即可。</p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h3><p>在本地计算机上创建一个空目录。<code>cd</code>目录，创建一个名为<code>Dockerfile</code>的文件，将以下内容复制并粘贴到该文件中，然后保存。记下解释新Dockerfile中每个语句的注释。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Use an official Python runtime as a parent image</span><br><span class="line">FROM python:2.7-slim</span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container at /app</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN pip install --trusted-host pypi.python.org -r requirements.txt</span><br><span class="line"></span><br><span class="line"># Make port 80 available to the world outside this container</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"># Define environment variable</span><br><span class="line">ENV NAME World</span><br><span class="line"></span><br><span class="line"># Run app.py when the container launches</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
+<p><img src="dockerfile关键字.jpg" alt="dockerfile关键字"></p>
+<h2 id="应用程序本身"><a href="#应用程序本身" class="headerlink" title="应用程序本身"></a>应用程序本身</h2><p>再创建两个文件，<code>requirements.txt</code>然后<code>app.py</code>将它们放在同一个文件夹中<code>Dockerfile</code>。这完成了我们的应用程序，您可以看到它非常简单。当上述<code>Dockerfile</code>被内置到的图像，<code>app.py</code>并且 <code>requirements.txt</code>是因为存在<code>Dockerfile</code>的<code>COPY</code>命令，并从输出<code>app.py</code>是通过HTTP得益于访问<code>EXPOSE</code> 命令。</p>
+<h3 id="requirements-txt-存放依赖性软包"><a href="#requirements-txt-存放依赖性软包" class="headerlink" title="requirements.txt 存放依赖性软包"></a><code>requirements.txt</code> 存放依赖性软包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Flask</span><br><span class="line">Redis</span><br></pre></td></tr></table></figure>
+<h2 id="构建应用程序"><a href="#构建应用程序" class="headerlink" title="构建应用程序"></a>构建应用程序</h2><p>我们准备构建应用程序。确保您仍处于新目录的顶层。这是<code>ls</code>应该显示的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">Dockerfile		app.py			requirements.txt</span><br></pre></td></tr></table></figure>
+<p>现在运行build命令。这将创建一个Docker镜像，我们将使用该<code>--tag</code>选项命名。使用<code>-t</code>，如果你想用较短的选项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --tag=friendlyhello .</span><br></pre></td></tr></table></figure>
+<p>你的建筑镜像在哪里？它位于您机器的本地Docker镜像注册表中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker image ls</span><br><span class="line"></span><br><span class="line">REPOSITORY            TAG                 IMAGE ID</span><br><span class="line">friendlyhello         latest              326387cea398</span><br></pre></td></tr></table></figure>
+<p>注意标签是如何默认的<code>latest</code>。标签选项的完整语法类似于<code>--tag=friendlyhello:v0.0.1</code>。</p>
 <blockquote>
-<p>注意使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常。</p>
+<p>Linux用户的故障排除</p>
+<p><em>代理服务器设置</em></p>
+<p>代理服务器可以在Web应用程序启动并运行后阻止其连接。如果您位于代理服务器后面，请<code>RUN pip</code>在Dockerfile中添加以下行，使用该<code>ENV</code>命令指定代理服务器的主机和端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; # Set proxy server, replace host:port with values for your servers</span><br><span class="line">&gt; ENV http_proxy host:port</span><br><span class="line">&gt; ENV https_proxy host:port</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
+<blockquote>
+<p><em>DNS设置</em></p>
+<p>DNS配置错误可能会产生问题<code>pip</code>。您需要设置自己的DNS服务器地址才能<code>pip</code>正常工作。您可能想要更改Docker守护程序的DNS设置。您可以<code>/etc/docker/daemon.json</code>使用<code>dns</code>密钥编辑（或创建）配置文件，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; &#123;</span><br><span class="line">&gt;   &quot;dns&quot;: [&quot;your_dns_address&quot;, &quot;8.8.8.8&quot;]</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>在上面的示例中，列表的第一个元素是DNS服务器的地址。第二项是Google的DNS，可在第一项无法使用时使用。</p>
+<p>在继续之前，请保存<code>daemon.json</code>并重新启动docker服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo service docker restart</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>修复后，重试运行该<code>build</code>命令。</p>
+<p><em>MTU设置</em></p>
+<p>如果默认网桥上的MTU（默认值为1500）大于主机外部网络的MTU，则<code>pip</code>失败。通过<code>/etc/docker/daemon.json</code>使用<code>mtu</code>密钥编辑（或创建）配置文件来设置docker bridge网络的MTU以匹配主机的MTU ，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; &#123;</span><br><span class="line">&gt;   &quot;mtu&quot;: 1450</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>在继续之前，请保存<code>daemon.json</code>并重新启动docker服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo systemctl restart docker</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>重新运行该<code>build</code>命令。</p>
+</blockquote>
+<h2 id="运行应用程序"><a href="#运行应用程序" class="headerlink" title="运行应用程序"></a>运行应用程序</h2><p>运行应用程序，使用以下方法将计算机的端口4000映射到容器的已发布端口80 <code>-p</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure>
+<p>您应该看到Python正在为您的应用提供服务的消息<code>http://0.0.0.0:80</code>。但是该消息来自容器内部，它不知道您将该容器的端口80映射到4000，从而生成正确的URL <code>http://localhost:4000</code>。</p>
+<blockquote>
+<p><strong>注意</strong>：如果您在Windows 7上使用Docker Toolbox，请使用Docker Machine IP而不是<code>localhost</code>。例如，http：//192.168.99.100：4000 /。要查找IP地址，请使用该命令<code>docker-machine ip</code>。</p>
+</blockquote>
+<p>您还可以<code>curl</code>在shell中使用该命令来查看相同的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://localhost:4000</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;Hello World!&lt;/h3&gt;&lt;b&gt;Hostname:&lt;/b&gt; 8fc990912a14&lt;br/&gt;&lt;b&gt;Visits:&lt;/b&gt; &lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+<p>现在让我们在后台以分离模式运行应用程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 4000:80 friendlyhello</span><br></pre></td></tr></table></figure>
+<p>您获得应用程序的长容器ID，然后被踢回终端。您的容器正在后台运行。您还可以看到缩写的容器ID <code>docker container ls</code>（并且在运行命令时两者都可以互换）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker container ls</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED</span><br><span class="line">1fa4ab2cf395        friendlyhello       &quot;python app.py&quot;     28 seconds ago</span><br></pre></td></tr></table></figure>
+<p>请注意<code>CONTAINER ID</code>匹配的内容<code>http://localhost:4000</code>。</p>
+<p>现在<code>docker container stop</code>用来结束这个过程，使用<code>CONTAINER ID</code>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop 1fa4ab2cf395</span><br></pre></td></tr></table></figure>
+<h2 id="分享你的镜像"><a href="#分享你的镜像" class="headerlink" title="分享你的镜像"></a>分享你的镜像</h2><p>为了演示我们刚刚创建的内容的可移植性，让我们上传我们构建的图像并在其他地方运行它。毕竟，当您想要将容器部署到生产环境时，您需要知道如何推送到注册表。</p>
+<p>注册表是存储库的集合，存储库是图像的集合 - 类似于GitHub存储库，除了代码已经构建。注册表上的帐户可以创建许多存储库。该<code>docker</code>CLI使用泊坞窗的公共注册表默认情况下。</p>
+<h2 id="回顾和备忘单（可选）"><a href="#回顾和备忘单（可选）" class="headerlink" title="回顾和备忘单（可选）"></a>回顾和备忘单（可选）</h2><p>以下是此页面中基本Docker命令的列表，以及一些相关的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"># Create image using this directory&apos;s Dockerfile</span><br><span class="line"># 使用此目录的Dockerfile创建映像</span><br><span class="line">docker build -t friendlyhello .  </span><br><span class="line"></span><br><span class="line"># Run &quot;friendlyhello&quot; mapping port 4000 to 80</span><br><span class="line"># 运行“friendlyhello”映射端口4000到80</span><br><span class="line">docker run -p 4000:80 friendlyhello  </span><br><span class="line"></span><br><span class="line"># Same thing, but in detached mode</span><br><span class="line"># 运行，但处于分离模式</span><br><span class="line">docker run -d -p 4000:80 friendlyhello </span><br><span class="line"></span><br><span class="line"># List all running containers</span><br><span class="line"># 列出所有正在运行的容器</span><br><span class="line">docker container ls</span><br><span class="line"></span><br><span class="line"># List all containers, even those not running</span><br><span class="line"># 列出所有容器，甚至是那些未运行的容器</span><br><span class="line">docker container ls -a </span><br><span class="line"></span><br><span class="line"># Gracefully stop the specified container</span><br><span class="line"># 优雅地停止指定的容器</span><br><span class="line">docker container stop &lt;hash&gt;  </span><br><span class="line"></span><br><span class="line"># Force shutdown of the specified container</span><br><span class="line"># 强制关闭指定的容器</span><br><span class="line">docker container kill &lt;hash&gt; </span><br><span class="line"></span><br><span class="line"># Remove specified container from this machine</span><br><span class="line"># 从此计算机中删除指定的容器</span><br><span class="line">docker container rm &lt;hash&gt; </span><br><span class="line"></span><br><span class="line"># Remove all containers</span><br><span class="line"># 删除所有容器</span><br><span class="line">docker container rm $(docker container ls -a -q) </span><br><span class="line"></span><br><span class="line"># List all images on this machine</span><br><span class="line"># 列出本机上的所有镜像</span><br><span class="line">docker image ls -a </span><br><span class="line"></span><br><span class="line"># Remove specified image from this machine</span><br><span class="line"># 从本机删除指定的图像</span><br><span class="line">docker image rm &lt;image id&gt;  </span><br><span class="line"></span><br><span class="line"># Remove all images from this machine</span><br><span class="line"># 从本机删除所有图像</span><br><span class="line">docker image rm $(docker image ls -a -q)  </span><br><span class="line"></span><br><span class="line"># Log in this CLI session using your Docker credentials</span><br><span class="line"># 使用Docker凭据登录此CLI会话</span><br><span class="line">docker login   </span><br><span class="line"></span><br><span class="line"># Tag &lt;image&gt; for upload to registry</span><br><span class="line"># 标记&lt;image&gt;以上传到注册表</span><br><span class="line">docker tag &lt;image&gt; username/repository:tag  </span><br><span class="line"></span><br><span class="line"># Upload tagged image to registry</span><br><span class="line"># 将标记图像上载到注册表</span><br><span class="line">docker push username/repository:tag </span><br><span class="line"></span><br><span class="line"># Run image from a registry</span><br><span class="line"># 从注册表运行镜像</span><br><span class="line">docker run username/repository:tag</span><br></pre></td></tr></table></figure>
 
       
       
@@ -288,7 +333,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -344,7 +389,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/09/13/Docker基础学习笔记2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +403,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/13/Docker基础学习笔记3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo下yilia主题添加字数统计和阅读时长功能
+          Docker基础学习笔记3
         
       </div>
     </a>
   
   
-    <a href="/2019/05/13/有效沟通/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">有效沟通</div>
+    <a href="/2019/09/13/Docker基础学习笔记1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker基础学习笔记1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,7 +441,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Dockerfile定义容器"><span class="toc-number">1.</span> <span class="toc-text">使用 Dockerfile定义容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile"><span class="toc-number">1.1.</span> <span class="toc-text">Dockerfile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用程序本身"><span class="toc-number">2.</span> <span class="toc-text">应用程序本身</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requirements-txt-存放依赖性软包"><span class="toc-number">2.1.</span> <span class="toc-text">requirements.txt 存放依赖性软包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构建应用程序"><span class="toc-number">3.</span> <span class="toc-text">构建应用程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行应用程序"><span class="toc-number">4.</span> <span class="toc-text">运行应用程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分享你的镜像"><span class="toc-number">5.</span> <span class="toc-text">分享你的镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回顾和备忘单（可选）"><span class="toc-number">6.</span> <span class="toc-text">回顾和备忘单（可选）</span></a></li></ol>
                     </div>
                 </span>
             </div>
