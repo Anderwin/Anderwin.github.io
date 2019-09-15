@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://anderwin.top">
-  <title>Archives | Anderwin的个人博客</title>
+  <title>Docker实战-使用commit构建Apache+wsgi+Django镜像 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Anderwin的个人博客">
-<meta property="og:url" content="http://anderwin.top/archives/page/3/index.html">
+  <meta name="description" content="使用commit构建Apache+wsgi+Django镜像docker commit :从容器创建一个新的镜像">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker实战-使用commit构建Apache+wsgi+Django镜像">
+<meta property="og:url" content="http://anderwin.top/2019/09/15/Docker实战-使用commit构建Apache-wsgi-Django镜像/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
+<meta property="og:description" content="使用commit构建Apache+wsgi+Django镜像docker commit :从容器创建一个新的镜像">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-15T08:05:04.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anderwin的个人博客">
+<meta name="twitter:title" content="Docker实战-使用commit构建Apache+wsgi+Django镜像">
+<meta name="twitter:description" content="使用commit构建Apache+wsgi+Django镜像docker commit :从容器创建一个新的镜像">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -170,254 +175,353 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Docker实战-使用commit构建Apache-wsgi-Django镜像" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker实战-使用commit构建Apache+wsgi+Django镜像
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/15/Docker实战-使用commit构建Apache-wsgi-Django镜像/" class="archive-article-date">
+  	<time datetime="2019-09-15T08:03:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+       
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+
+          <!-- 开始添加阅读量统计-->
+          <span id="busuanzi_container_page_pv">
+            阅读统计:<span id="busuanzi_value_page_pv"></span>次
+          </span>
+          <!-- 结束添加-->
+
+          
+        <!-- 添加完成 -->    
+        
+        
+
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用commit构建Apache-wsgi-Django镜像"><a href="#使用commit构建Apache-wsgi-Django镜像" class="headerlink" title="使用commit构建Apache+wsgi+Django镜像"></a>使用commit构建Apache+wsgi+Django镜像</h2><p><strong>docker commit :</strong>从容器创建一个新的镜像</p>
+<a id="more"></a>
+<h3 id="运行一个基础镜像"><a href="#运行一个基础镜像" class="headerlink" title="运行一个基础镜像"></a>运行一个基础镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit centos:6.8 bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>-d:</strong> 后台运行容器，并返回容器ID；</li>
+<li><strong>-i:</strong> 以交互模式运行容器，通常与 -t 同时使用；</li>
+<li><strong>-P:</strong> 随机端口映射，容器内部端口<strong>随机</strong>映射到主机的高端口</li>
+<li><strong>-p:</strong> 指定端口映射，格式为：<strong>主机(宿主)端口:容器端口</strong></li>
+<li><strong>-t:</strong> 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</li>
+<li><strong>docker exec ：</strong>在运行的容器中执行命令</li>
+</ul>
+<p>通过 <strong>docker ps -a</strong> 命令查看已经在运行的容器，然后使用容器 ID在容器中开启一个交互模式的终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 7ef9388bbf2b /bin/bash</span><br></pre></td></tr></table></figure>
+<p><strong>交互模式进入容器：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it 镜像名 bash</span><br><span class="line">docker exec -it 容器id bash</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="安装需要的软件包以及模块"><a href="#安装需要的软件包以及模块" class="headerlink" title="安装需要的软件包以及模块"></a>安装需要的软件包以及模块</h3><h4 id="安装pip源"><a href="#安装pip源" class="headerlink" title="安装pip源"></a><strong>安装pip源</strong></h4><p>yum updata</p>
+<p>yum -y install epel-release</p>
+<p>编辑文件的每一个[epel]的第三行去掉注释，第四行注释掉，完成效果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/yum.repos.d/epel.repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 6 - $basearch</span><br><span class="line">baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="安装环境软件"><a href="#安装环境软件" class="headerlink" title="安装环境软件"></a><strong>安装环境软件</strong></h4><p>yum –enablerepo=epel install -y python-pip</p>
+<p>pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> django==1.6.2</p>
+<p>pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> djangorestframework==2.3.14</p>
+<p>yum install -y gcc libffi-devel python-devel openssl-devel</p>
+<p>yum install -y mysql-devel python-devel python-setuptools </p>
+<p>pip install MySQL-python</p>
+<hr>
+<h4 id="安装apache"><a href="#安装apache" class="headerlink" title="安装apache"></a><strong>安装apache</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd*  --安装apache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep httpd     --查看安装的http包</span><br></pre></td></tr></table></figure>
+<p>查看apache是否启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.查看端口</span><br><span class="line"></span><br><span class="line">首先要知道apache的端口，比如说80端口；</span><br><span class="line">查看端口是否被开启和监听</span><br><span class="line">netstat -an | grep :80</span><br><span class="line"></span><br><span class="line">2.查看进程</span><br><span class="line">ps -ef |grep httpd</span><br><span class="line">ps -aux | grep httpd</span><br><span class="line">如果看到许多（一般是4到5个）输出就说明对了。</span><br></pre></td></tr></table></figure>
+<p>启动Apache网站检查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service httpd start            --启动Apache网站  </span><br><span class="line">service httpd stop             --停止Apache网站  </span><br><span class="line">service httpd restart          --重启Apache网站</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="安装python2-7的mod-wsgi"><a href="#安装python2-7的mod-wsgi" class="headerlink" title="安装python2.7的mod_wsgi"></a><strong>安装python2.7的mod_wsgi</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mod_wsgi</span><br></pre></td></tr></table></figure>
+<p>配置apache加载wsgi模块</p>
+<p>使用<em>mod_wsgi-express install-module</em>查询mod_wsgi.so的路径，输出如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@95d28530ae06 conf.d]# mod_wsgi-express install-module</span><br><span class="line">LoadModule wsgi_module &quot;/usr/lib64/httpd/modules/mod_wsgi-py26.so&quot;</span><br><span class="line">WSGIPythonHome &quot;/usr&quot;</span><br></pre></td></tr></table></figure>
+<p>在Apache模块配置目录/etc/httpd/conf.d/创建一个mod_wsgi.conf配置文件，加入上面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi mod_wsgi.conf</span><br><span class="line"></span><br><span class="line">LoadModule wsgi_module &quot;/usr/lib64/httpd/modules/mod_wsgi-py26.so&quot;</span><br><span class="line">WSGIPythonHome &quot;/usr&quot;</span><br></pre></td></tr></table></figure>
+<p>重启Apache服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service httpd restart</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="设置开机启动Apache"><a href="#设置开机启动Apache" class="headerlink" title="设置开机启动Apache"></a><strong>设置开机启动Apache</strong></h4><p>先用查询apache和mysql服务是否存在，不存在则需要手动添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
+<p>设置httpd 在运行级别为2、3、4、5情况都为开启状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --level 2345 httpd on</span><br></pre></td></tr></table></figure>
+<p>重启Apache服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service httpd restart</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="生成新镜像"><a href="#生成新镜像" class="headerlink" title="生成新镜像"></a>生成新镜像</h3><p>本地需要的程序都准备完成后使用commit生成新的镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m &quot;Apache/2.2.15-mod_wsgi-py26-Django1.6.2&quot; -a li 95d28530ae06 centos/apache-wsgi-django:1.0</span><br></pre></td></tr></table></figure>
+<p><strong>docker commit :</strong>从容器创建一个新的镜像。</p>
+<p>语法 docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</p>
+<p>OPTIONS说明：</p>
+<ul>
+<li><strong>-a :</strong>提交的镜像作者；</li>
+<li><strong>-c :</strong>使用Dockerfile指令来创建镜像；</li>
+<li><strong>-m :</strong>提交时的说明文字；</li>
+<li><strong>-p :</strong>在commit时，将容器暂停。</li>
+</ul>
+<hr>
+<h3 id="docker-save-将指定镜像保存成-tar-归档文件。"><a href="#docker-save-将指定镜像保存成-tar-归档文件。" class="headerlink" title="docker save : 将指定镜像保存成 tar 归档文件。"></a><strong>docker save : 将指定镜像保存成 tar 归档文件。</strong></h3><p>将镜像 centos/apache-wsgi-django:1.0 生成 centos/apache-wsgi-django.tar 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o centos/apache-wsgi-django.tar centos/apache-wsgi-django:1.0</span><br></pre></td></tr></table></figure>
+<p>语法：docker save [OPTIONS] IMAGE [IMAGE…]</p>
+<p>OPTIONS 说明：</p>
+<ul>
+<li><strong>-o :</strong>输出到的文件。</li>
+</ul>
+<hr>
+<h3 id="将项目文件导入容器并赋予执行权限（可选部分）"><a href="#将项目文件导入容器并赋予执行权限（可选部分）" class="headerlink" title="将项目文件导入容器并赋予执行权限（可选部分）"></a><strong>将项目文件导入容器并赋予执行权限</strong>（可选部分）</h3><p>为方便批量部署可以把项目文件导入容器，然后再构建镜像。优点：方便批量部署。缺点：项目环境不可重复使用</p>
+<p>将主机的项目文件目录拷贝到容器目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker cp ./ 95d28530ae06:/var/www/html</span><br><span class="line">docker cp ./testprj.conf 95d28530ae06:/etc/httpd/conf.d</span><br></pre></td></tr></table></figure>
+<p>赋予权限：执行某个容器的某条命令，但又不想进入容器内，编写脚本文件</p>
+<p>vi start.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">DOCKER_ID=95d28530ae06</span><br><span class="line">sudo docker exec -it $DOCKER_ID /bin/bash -c &apos;chcon -R -t httpd_user_content_t /var/www/html &amp;&amp; chmod -R 777 /var/www/html &amp;&amp; service httpd restart&apos;</span><br></pre></td></tr></table></figure>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/WechatIMG.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/" class="archive-article-date">
-  	<time datetime="2019-05-15T15:27:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/">hexo下yilia主题添加字数统计和阅读时长功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/09/15/Docker实战-使用commit构建Apache-wsgi-Django镜像/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" class="archive-article-date">
-  	<time datetime="2019-05-15T12:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/15/Docker实战-基于Docker的Apache-Django-Mysql应用容器化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Docker实战-基于Docker的Apache-Django-Mysql应用容器化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/15/Docker实战-安装卸载/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker实战-安装卸载</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/">hexo Yilia显示站点总访问量/单页面访问量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用commit构建Apache-wsgi-Django镜像"><span class="toc-number">1.</span> <span class="toc-text">使用commit构建Apache+wsgi+Django镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行一个基础镜像"><span class="toc-number">1.1.</span> <span class="toc-text">运行一个基础镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装需要的软件包以及模块"><span class="toc-number">1.2.</span> <span class="toc-text">安装需要的软件包以及模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装pip源"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装pip源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装环境软件"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装环境软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装apache"><span class="toc-number">1.2.3.</span> <span class="toc-text">安装apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装python2-7的mod-wsgi"><span class="toc-number">1.2.4.</span> <span class="toc-text">安装python2.7的mod_wsgi</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置开机启动Apache"><span class="toc-number">1.2.5.</span> <span class="toc-text">设置开机启动Apache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成新镜像"><span class="toc-number">1.3.</span> <span class="toc-text">生成新镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-save-将指定镜像保存成-tar-归档文件。"><span class="toc-number">1.4.</span> <span class="toc-text">docker save : 将指定镜像保存成 tar 归档文件。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将项目文件导入容器并赋予执行权限（可选部分）"><span class="toc-number">1.5.</span> <span class="toc-text">将项目文件导入容器并赋予执行权限（可选部分）</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+
+  <!-- 增加valine评论系统2019.5.18 -->
   
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "EiSSDpNl2WFo6Pr8VVaeIipB-gzGzoHsz",
+        app_key: "dw7RaRRcUOL0NbLHRWG0bCFj",
+        placeholder: "来啊，快活啊!",
+        avatar:"mm",
+    });
+</script>
+    </section>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/13/有效沟通/" class="archive-article-date">
-  	<time datetime="2019-05-13T12:17:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        </div>
-    	 
+  <!-- valine评论系统 -->
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/13/有效沟通/">有效沟通</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/13/vscode快捷键/" class="archive-article-date">
-  	<time datetime="2019-05-12T17:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/13/vscode快捷键/">vscode快捷键</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">收藏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/12/使用hexo框架搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-05-12T07:48:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/12/使用hexo框架搭建个人博客/">使用hexo框架搭建个人博客</a>
-    </h1>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-12T06:48:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/12/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
           </div>
@@ -455,8 +559,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

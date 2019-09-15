@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://anderwin.top">
-  <title>Archives | Anderwin的个人博客</title>
+  <title>Docker实战-基于Docker的Apache-Django-Mysql应用容器化 | Anderwin的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Anderwin的个人博客">
-<meta property="og:url" content="http://anderwin.top/archives/page/3/index.html">
+  <meta name="description" content="基于Docker的Apache-Django-Mysql应用容器化使用Dockerfile+compose的方式实战部署Django项目的方法">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker实战-基于Docker的Apache-Django-Mysql应用容器化">
+<meta property="og:url" content="http://anderwin.top/2019/09/15/Docker实战-基于Docker的Apache-Django-Mysql应用容器化/index.html">
 <meta property="og:site_name" content="Anderwin的个人博客">
+<meta property="og:description" content="基于Docker的Apache-Django-Mysql应用容器化使用Dockerfile+compose的方式实战部署Django项目的方法">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-15T08:11:16.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anderwin的个人博客">
+<meta name="twitter:title" content="Docker实战-基于Docker的Apache-Django-Mysql应用容器化">
+<meta name="twitter:description" content="基于Docker的Apache-Django-Mysql应用容器化使用Dockerfile+compose的方式实战部署Django项目的方法">
   
     <link rel="alternative" href="/atom.xml" title="Anderwin的个人博客" type="application/atom+xml">
   
@@ -170,254 +175,287 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Docker实战-基于Docker的Apache-Django-Mysql应用容器化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker实战-基于Docker的Apache-Django-Mysql应用容器化
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/15/Docker实战-基于Docker的Apache-Django-Mysql应用容器化/" class="archive-article-date">
+  	<time datetime="2019-09-15T08:06:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+       
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">5分</span>
+      </span>
+    </span>
+</div>
+
+
+          <!-- 开始添加阅读量统计-->
+          <span id="busuanzi_container_page_pv">
+            阅读统计:<span id="busuanzi_value_page_pv"></span>次
+          </span>
+          <!-- 结束添加-->
+
+          
+        <!-- 添加完成 -->    
+        
+        
+
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基于Docker的Apache-Django-Mysql应用容器化"><a href="#基于Docker的Apache-Django-Mysql应用容器化" class="headerlink" title="基于Docker的Apache-Django-Mysql应用容器化"></a>基于Docker的Apache-Django-Mysql应用容器化</h2><p>使用Dockerfile+compose的方式实战部署Django项目的方法</p>
+<a id="more"></a>
+<h3 id="准备需要用到的-image"><a href="#准备需要用到的-image" class="headerlink" title="准备需要用到的 image"></a>准备需要用到的 image</h3><p>查找Docker Hub上的mysql镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br><span class="line">docker search centos</span><br></pre></td></tr></table></figure>
+<p>拉取官方的镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos:6.8</span><br></pre></td></tr></table></figure>
+<h3 id="准备文件结构docker文件夹目录结构"><a href="#准备文件结构docker文件夹目录结构" class="headerlink" title="准备文件结构docker文件夹目录结构"></a>准备文件结构<strong>docker文件夹目录结构</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">└── docker</span><br><span class="line">    ├── docker-compose.yml          # docker-compose 配置文件</span><br><span class="line">    ├── Dockerfile                  # 构建httpd+django容器的Dockerfile</span><br><span class="line">    ├── build</span><br><span class="line">    │   └── Dockerfile              # 构建用于systemd基本映像的Dockerfile</span><br><span class="line">    └── work</span><br><span class="line">        └── html                    # 项目代码源文件夹，从这里导入文件到容器中 </span><br><span class="line">        │   └── dist                # Angular前端项目文件夹</span><br><span class="line">        │   └──  PmsService         # Django后端项目文件夹</span><br><span class="line">        └── components</span><br><span class="line">            └── html                # 项目代码的主机挂载目录</span><br><span class="line">            ├── httpd               # httpd配置文件夹</span><br><span class="line">            │   └── testprj.conf    # httpd配置文件</span><br><span class="line">            ├── mydb                # 数据库持久化主机挂载目录</span><br><span class="line">            └── wsgi                # wsgi模块配置文件夹</span><br><span class="line">                └── mod_wsgi.conf   # wsgi配置文件</span><br></pre></td></tr></table></figure>
+<h3 id="编写构建用于systemd基本映像的Dockerfile"><a href="#编写构建用于systemd基本映像的Dockerfile" class="headerlink" title="编写构建用于systemd基本映像的Dockerfile"></a>编写<strong>构建用于systemd基本映像的Dockerfile</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FROM centos:6.8</span><br><span class="line">ENV container docker</span><br><span class="line">RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \</span><br><span class="line">systemd-tmpfiles-setup.service ] || rm -f $i; done); \</span><br><span class="line">rm -f /lib/systemd/system/multi-user.target.wants/*;\</span><br><span class="line">rm -f /etc/systemd/system/*.wants/*;\</span><br><span class="line">rm -f /lib/systemd/system/local-fs.target.wants/*; \</span><br><span class="line">rm -f /lib/systemd/system/sockets.target.wants/*udev*; \</span><br><span class="line">rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \</span><br><span class="line">rm -f /lib/systemd/system/basic.target.wants/*;\</span><br><span class="line">rm -f /lib/systemd/system/anaconda.target.wants/*;</span><br><span class="line">VOLUME [ &quot;/sys/fs/cgroup&quot; ]</span><br><span class="line">CMD [&quot;/usr/sbin/init&quot;]</span><br></pre></td></tr></table></figure>
+<p>此Dockerfile删除可能导致问题的许多单元文件。从这里开始，您就可以构建基本映像了。( 确保处于docker/ ）</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> docker build --rm -t c68-systemd ./build</span><br></pre></td></tr></table></figure>
+<h3 id="构建httpd-django容器的Dockerfile"><a href="#构建httpd-django容器的Dockerfile" class="headerlink" title="构建httpd+django容器的Dockerfile"></a><strong>构建httpd+django容器的Dockerfile</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">FROM c68-systemd</span><br><span class="line"></span><br><span class="line">LABEL version=&quot;1.0&quot;</span><br><span class="line">LABEL author=dengwen</span><br><span class="line">LABEL description=&quot;httpd+wsgi+django&quot;</span><br><span class="line"></span><br><span class="line"># yum 更新/安装pip源/安装环境软件</span><br><span class="line">RUN yum -y update &amp;&amp; yum clean all &amp;&amp; yum -y install epel-release \</span><br><span class="line">    &amp;&amp; yum --enablerepo=epel install -y python-pip \</span><br><span class="line">    &amp;&amp; yum install -y gcc libffi-devel python-devel openssl-devel \</span><br><span class="line">    &amp;&amp; yum install -y mysql-devel python-devel python-setuptools \</span><br><span class="line">    &amp;&amp; yum -y install httpd* \</span><br><span class="line">    &amp;&amp; pip install -i https://pypi.tuna.tsinghua.edu.cn/simple django==1.6.2 \</span><br><span class="line">    &amp;&amp; pip install -i https://pypi.tuna.tsinghua.edu.cn/simple djangorestframework==2.3.14 \</span><br><span class="line">    &amp;&amp; pip install MySQL-python &amp;&amp; pip install mod_wsgi &amp;&amp; mod_wsgi-express install-module \</span><br><span class="line">    &amp;&amp; chkconfig --level 2345 httpd on</span><br><span class="line"></span><br><span class="line"># 添加httpd配置文件到容器</span><br><span class="line">ADD work/components/httpd/testprj.conf /etc/httpd/conf.d</span><br><span class="line"># 添加wsgi配置文件</span><br><span class="line">ADD work/components/wsgi/mod_wsgi.conf /etc/httpd/conf.d</span><br><span class="line"></span><br><span class="line"># 添加项目文件到容器</span><br><span class="line">ADD work/html/ /var/www/html</span><br><span class="line"></span><br><span class="line"># 赋予执行权限</span><br><span class="line">RUN chcon -R -t httpd_user_content_t /var/www/html &amp;&amp; chmod -R 777 /var/www/html</span><br><span class="line"></span><br><span class="line"># 暴露端口</span><br><span class="line">EXPOSE 80</span><br><span class="line">EXPOSE 8007</span><br><span class="line">VOLUME [ &quot;/sys/fs/cgroup&quot; ]</span><br><span class="line"># 开机启动 apache 服务</span><br><span class="line">CMD [&quot;sh&quot;, &quot;-c&quot;, &quot;service httpd start;bash&quot;]</span><br></pre></td></tr></table></figure>
+<p>构建此镜像（此处可选）</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --rm -t c68-systemd/httpd-django .</span><br></pre></td></tr></table></figure>
+<h3 id="编辑wsgi配置文件"><a href="#编辑wsgi配置文件" class="headerlink" title="编辑wsgi配置文件"></a>编辑wsgi配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LoadModule wsgi_module &quot;/usr/lib64/httpd/modules/mod_wsgi-py26.so&quot;</span><br><span class="line">WSGIPythonHome &quot;/usr&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="编辑httpd配置文件"><a href="#编辑httpd配置文件" class="headerlink" title="编辑httpd配置文件"></a>编辑httpd配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Listen 8007</span><br><span class="line">&lt;VirtualHost *:8007&gt;</span><br><span class="line">        WSGIScriptAlias / &quot;var/www/html/PmsService/PmsService/wsgi.py&quot;</span><br><span class="line">        ServerName www.pmsservice.com</span><br><span class="line">        Alias /static /var/www/html/PmsService/static</span><br><span class="line">        &lt;Directory &quot;/var/www/html/PmsService&quot;&gt;</span><br><span class="line">                Order Allow,Deny</span><br><span class="line">                Allow from all</span><br><span class="line">        &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">       DocumentRoot /var/www/html/dist</span><br><span class="line">       &lt;Directory  /var/www/html/dist&gt;</span><br><span class="line">            Order Allow,Deny</span><br><span class="line">            Allow from All</span><br><span class="line">           &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>注意，Django项目的setting.py中连接数据库处要写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;haerbinxi_users&apos;,</span><br><span class="line">        &apos;USER&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;PASSWORD&apos;: &apos;password&apos;,</span><br><span class="line">        &apos;HOST&apos;: &apos;db&apos;,   # 此处与docker-compose.yml处一致，不可写成ip地址</span><br><span class="line">        &apos;PORT&apos;: &apos;3306&apos;,</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="编写docker-compose-yml配置文件"><a href="#编写docker-compose-yml配置文件" class="headerlink" title="编写docker-compose.yml配置文件"></a>编写<strong>docker-compose.yml配置文件</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"># docker-compose版本</span><br><span class="line">version: &apos;3&apos;</span><br><span class="line"># 服务</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    # 构建镜像</span><br><span class="line">    build: .</span><br><span class="line">    # 运行容器的名称</span><br><span class="line">    container_name: webservice</span><br><span class="line">    # 允许后台运行</span><br><span class="line">    tty: true</span><br><span class="line">    # 端口映射</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;80:80&quot;</span><br><span class="line">      - &quot;8007:8007&quot;</span><br><span class="line">    # 代码文件</span><br><span class="line">    #volumes:</span><br><span class="line">     # - /root/docker/work/components/html:/var/www/html</span><br><span class="line">    # 依赖db服务，先启动db再启动web</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    # 宕机即重启</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">    # 启动容器是运行的命令</span><br><span class="line">    #command: /etc/rc.d/init.d/httpd start</span><br><span class="line">    # 连接数据库</span><br><span class="line">    links:</span><br><span class="line">      - db</span><br><span class="line">  db:</span><br><span class="line">    # 拉取镜像</span><br><span class="line">    image: mysql:5.7</span><br><span class="line">    # 运行容器的名称</span><br><span class="line">    container_name: mysql</span><br><span class="line"></span><br><span class="line">    # 环境变量</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=Loteem@1067983778</span><br><span class="line">    # 端口映射</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3306:3306&quot;</span><br><span class="line">    # 宕机即重启</span><br><span class="line">    restart: always</span><br><span class="line">    # 挂载目录</span><br><span class="line">    volumes:</span><br><span class="line">      # 数据储存目录，请自行定义</span><br><span class="line">      - /root/docker/work/components/mydb:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+<h3 id="使用docker-compose的基本操作"><a href="#使用docker-compose的基本操作" class="headerlink" title="使用docker-compose的基本操作"></a><strong>使用docker-compose的基本操作</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 构建项目</span><br><span class="line">docker-compose build</span><br><span class="line"># 启动项目</span><br><span class="line">docker-compose up -d</span><br><span class="line"># 关闭项目</span><br><span class="line">docker-compose down</span><br></pre></td></tr></table></figure>
+<h3 id="项目打包迁移（示例）"><a href="#项目打包迁移（示例）" class="headerlink" title="项目打包迁移（示例）"></a>项目打包迁移（示例）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 保存容器到tar文件</span><br><span class="line">save ubuntu:16.04 &gt; ubuntu.16.04.tar</span><br><span class="line"></span><br><span class="line"># 把打包好的镜像拷贝到需要部署的服务器，减压本地镜像包</span><br><span class="line">docker load &lt; ubuntu.16.04.tar</span><br></pre></td></tr></table></figure>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/WechatIMG.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/" class="archive-article-date">
-  	<time datetime="2019-05-15T15:27:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/15/hexo下yilia主题添加字数统计和阅读时长功能/">hexo下yilia主题添加字数统计和阅读时长功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://anderwin.top/2019/09/15/Docker实战-基于Docker的Apache-Django-Mysql应用容器化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/" class="archive-article-date">
-  	<time datetime="2019-05-15T12:58:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/15/Docker实战-使用commit构建Apache-wsgi-Django镜像/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker实战-使用commit构建Apache+wsgi+Django镜像</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/15/hexo yilia显示站点总访问量:单页面访问量/">hexo Yilia显示站点总访问量/单页面访问量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于Docker的Apache-Django-Mysql应用容器化"><span class="toc-number">1.</span> <span class="toc-text">基于Docker的Apache-Django-Mysql应用容器化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备需要用到的-image"><span class="toc-number">1.1.</span> <span class="toc-text">准备需要用到的 image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备文件结构docker文件夹目录结构"><span class="toc-number">1.2.</span> <span class="toc-text">准备文件结构docker文件夹目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写构建用于systemd基本映像的Dockerfile"><span class="toc-number">1.3.</span> <span class="toc-text">编写构建用于systemd基本映像的Dockerfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建httpd-django容器的Dockerfile"><span class="toc-number">1.4.</span> <span class="toc-text">构建httpd+django容器的Dockerfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑wsgi配置文件"><span class="toc-number">1.5.</span> <span class="toc-text">编辑wsgi配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑httpd配置文件"><span class="toc-number">1.6.</span> <span class="toc-text">编辑httpd配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写docker-compose-yml配置文件"><span class="toc-number">1.7.</span> <span class="toc-text">编写docker-compose.yml配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用docker-compose的基本操作"><span class="toc-number">1.8.</span> <span class="toc-text">使用docker-compose的基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目打包迁移（示例）"><span class="toc-number">1.9.</span> <span class="toc-text">项目打包迁移（示例）</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+
+  <!-- 增加valine评论系统2019.5.18 -->
   
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "EiSSDpNl2WFo6Pr8VVaeIipB-gzGzoHsz",
+        app_key: "dw7RaRRcUOL0NbLHRWG0bCFj",
+        placeholder: "来啊，快活啊!",
+        avatar:"mm",
+    });
+</script>
+    </section>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/13/有效沟通/" class="archive-article-date">
-  	<time datetime="2019-05-13T12:17:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        </div>
-    	 
+  <!-- valine评论系统 -->
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/13/有效沟通/">有效沟通</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/13/vscode快捷键/" class="archive-article-date">
-  	<time datetime="2019-05-12T17:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/13/vscode快捷键/">vscode快捷键</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">收藏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/12/使用hexo框架搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-05-12T07:48:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/12/使用hexo框架搭建个人博客/">使用hexo框架搭建个人博客</a>
-    </h1>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-12T06:48:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/12/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
           </div>
@@ -455,8 +493,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
