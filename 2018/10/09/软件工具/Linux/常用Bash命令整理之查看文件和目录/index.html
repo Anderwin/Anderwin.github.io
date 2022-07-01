@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/fluid.png">
+  <link rel="icon" href="/images/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="blinkfox">
+  <meta name="keywords" content="Anderwin 运维 测试 开发">
+  
+    <meta name="description" content="1. ls - 列出文件名和目录ls命令是Linux中最常用的命令之一，其作用就是列出文件名和目录。在命令行提示符下，直接输入ls命令，不带任何选项，将列出当前目录下所有文件和目录，但不会显示详细的信息，比如，文件类型、大小、修改日期和时间、权限等。 以下便是ls命令及其选项的作用说明： 1234567891011121314151617181920212223242526272829303132">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用Bash命令整理之查看文件和目录">
+<meta property="og:url" content="http://anderwin.gtihub.io/2018/10/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/index.html">
+<meta property="og:site_name" content="Anderwin">
+<meta property="og:description" content="1. ls - 列出文件名和目录ls命令是Linux中最常用的命令之一，其作用就是列出文件名和目录。在命令行提示符下，直接输入ls命令，不带任何选项，将列出当前目录下所有文件和目录，但不会显示详细的信息，比如，文件类型、大小、修改日期和时间、权限等。 以下便是ls命令及其选项的作用说明： 1234567891011121314151617181920212223242526272829303132">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-09T14:45:00.000Z">
+<meta property="article:modified_time" content="2020-11-29T23:26:12.000Z">
+<meta property="article:author" content="Anderwin">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>常用Bash命令整理之查看文件和目录 - Anderwin</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"anderwin.gtihub.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":120,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Anderwin</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/video/">
+                <i class="iconfont icon-bilibili-fill"></i>
+                视频
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="常用Bash命令整理之查看文件和目录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-10-09 22:45" pubdate>
+          2018年10月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">常用Bash命令整理之查看文件和目录</h1>
+            
+            
+              <div class="markdown-body">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
+                <h2 id="1-ls-列出文件名和目录"><a href="#1-ls-列出文件名和目录" class="headerlink" title="1. ls - 列出文件名和目录"></a>1. ls - 列出文件名和目录</h2><p><code>ls</code>命令是<code>Linux</code>中最常用的命令之一，其作用就是列出文件名和目录。在命令行提示符下，直接输入<code>ls</code>命令，不带任何选项，将列出当前目录下所有文件和目录，但不会显示详细的信息，比如，文件类型、大小、修改日期和时间、权限等。</p>
+<p>以下便是<code>ls</code>命令及其选项的作用说明：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 仅列出当前目录下所有文件和目录</span><br><span class="hljs-built_in">ls</span><br><br><span class="hljs-comment"># 每行显示一条记录，每条记录包括文件类型、大小、修改日期和时间、权限等</span><br><span class="hljs-built_in">ls</span> -l<br><br><span class="hljs-comment"># 将文件大小显示符合人类阅读习惯的格式</span><br><span class="hljs-built_in">ls</span> -lh<br><br><span class="hljs-comment"># 将使用不同的特殊字符归类不同的文件类型</span><br><span class="hljs-built_in">ls</span> -F<br><br><span class="hljs-comment"># 以长列表格式列出某个目录的信息</span><br><span class="hljs-built_in">ls</span> -ld /var/log<br><br><span class="hljs-comment"># 将递归地列出子目录的内容</span><br><span class="hljs-built_in">ls</span> -R /etc/sysconfig/<br><br><span class="hljs-comment"># 以长列表格式按文件或目录的修改时间倒序地列出文件和目录</span><br><span class="hljs-built_in">ls</span> -ltr<br><br><span class="hljs-comment"># 以长列表格式按文件大小顺序列出文件和目录</span><br><span class="hljs-built_in">ls</span> -<span class="hljs-built_in">ls</span><br><br><span class="hljs-comment"># 列出包括隐藏文件或目录在内的所有文件和目录，包括“.”（当前目录）和“..”（父目录）</span><br><span class="hljs-built_in">ls</span> -a<br><br><span class="hljs-comment"># 列出包括隐藏文件或目录在内的所有文件和目录，不包括“.”（当前目录）和“..”（父目录）</span><br><span class="hljs-built_in">ls</span> -A<br><br>输出的内容类似于-l选项，指示显示uid和gid，替代显示所有者和用户组<br><span class="hljs-built_in">ls</span> -n<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-cat-连接显示文件内容"><a href="#2-cat-连接显示文件内容" class="headerlink" title="2. cat - 连接显示文件内容"></a>2. cat - 连接显示文件内容</h2><p><code>cat</code> 命令也是Linux系统中最常用的命令之一。<code>cat</code>命令让我们可以看看文件的内容、连接文件、创建一个或多个文件和重定向输出到终端或文件。</p>
+<p><code>cat</code>命令的语法如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> [OPTION] [FILE]...<br></code></pre></td></tr></table></figure>
+
+<p><code>cat</code>常用命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用 cat 命令查看文件 /etc/group 的内容</span><br><span class="hljs-built_in">cat</span> /etc/group<br><br><span class="hljs-comment"># 显示多个文件的内容</span><br><span class="hljs-built_in">cat</span> /etc/redhat-release /etc/issue<br><br><span class="hljs-comment"># -n 选项，可以显示文件内容的行号</span><br><span class="hljs-built_in">cat</span> -n /etc/fstab<br><br><span class="hljs-comment"># -b 选项和 -n 选项类似，但只标识非空白行的行号</span><br><span class="hljs-built_in">cat</span> -b /etc/fstab<br><br><span class="hljs-comment"># -e 选项，将在每一行的结尾显示“$”字符</span><br><span class="hljs-built_in">cat</span> -e /etc/fstab<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当你只输入 cat 命令，而没有任何参数时，它只是接收标准输入的内容并在标准输出中显示。所以你在输入一行内容并回车后，会在接下来的一行显示相同的内容。你也可以重定向标准输出到一个新文件。</p>
+</blockquote>
+<h2 id="3-less、more-分屏显示文件"><a href="#3-less、more-分屏显示文件" class="headerlink" title="3.less、more - 分屏显示文件"></a>3.less、more - 分屏显示文件</h2><p><code>more</code>命令在你使用小的xterm窗口时，或是想不使用文本编辑器而只是简单地阅读一个文件时是很有用的。more命令是一个用于一次翻阅一整屏文件的过滤器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看一个文件，自动清空屏幕并显示文件开头部分</span><br>more /etc/inittab<br><br><span class="hljs-comment"># 指定一次显示num行</span><br>more -num /etc/inittab<br></code></pre></td></tr></table></figure>
+
+<p>与<code>more</code>命令相比，我个人更喜欢<code>less</code>命令来查看文件。<code>less</code>命令与<code>more</code>命令类似，但<code>less</code>命令向前和向后翻页都支持，而且<code>less</code>命令不需要在查看前加载整个文件，即<code>less</code>命令查看文件更快速。</p>
+<p><code>less</code>常用命令参数如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">-b  &lt;缓冲区大小&gt; 设置缓冲区的大小<br>-e  当文件显示结束后，自动离开<br>-f  强迫打开特殊文件，例如外围设备代号、目录和二进制文件<br>-g  只标志最后搜索的关键词<br>-i  忽略搜索时的大小写<br>-m  显示类似more命令的百分比<br>-N  显示每行的行号<br>-o  &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来<br>-Q  不使用警告音<br>-s  显示连续空行为一行<br>-S  行过长时间将超出部分舍弃<br>-x  &lt;数字&gt; 将“tab”键显示为规定的数字空格<br>/字符串：向下搜索“字符串”的功能<br>?字符串：向上搜索“字符串”的功能<br>n： 重复前一个搜索（与 / 或 ? 有关）<br>N： 反向重复前一个搜索（与 / 或 ? 有关）<br>b  向后翻一页<br>d  向后翻半页<br>h  显示帮助界面<br>Q  退出less 命令<br>u  向前滚动半页<br>y  向前滚动一行<br>空格键 滚动一行<br>回车键 滚动一页<br>[pagedown]： 向下翻动一页<br>[pageup]：   向上翻动一页<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-head-显示文件头部"><a href="#4-head-显示文件头部" class="headerlink" title="4.head - 显示文件头部"></a>4.head - 显示文件头部</h2><p><code>head</code>命令用于打印指定输入的开头部分内容。默认情况下，打印每个指定输入的前10行内容。</p>
+<p>使用<code>-n</code>选项可以指定打印文件的前N行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 指定打印文件的前5行</span><br><span class="hljs-built_in">head</span> -n 5 /etc/inittab<br>（或）<span class="hljs-built_in">head</span> -5 /etc/inittab<br><br><span class="hljs-comment"># 打印文件的前N个字节的数据</span><br><span class="hljs-built_in">head</span> -c 10 /etc/inittab<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-tail-显示文件尾部"><a href="#5-tail-显示文件尾部" class="headerlink" title="5.tail - 显示文件尾部"></a>5.tail - 显示文件尾部</h2><p><code>tail</code>命令和<code>head</code>命令相反，它打印指定输入的结尾部分的内容。默认情况下，它打印指定输入的最后10行内容。</p>
+<p>使用<code>-n</code>选项可以指定打印文件的最后N行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 指定打印文件的后10行</span><br><span class="hljs-built_in">tail</span> -n 10 /etc/inittab<br><span class="hljs-built_in">tail</span> -10 /etc/inittab<br><br><span class="hljs-comment"># 即时打印文件中新写入的行</span><br><span class="hljs-built_in">tail</span> -f /var/log/messages<br><br><span class="hljs-comment"># --retry选项表示持续尝试打开某个文件，当你想打开一个稍后才会创建或即使不可用的文件</span><br><span class="hljs-built_in">tail</span> -f /tmp/debug.log --retry<br></code></pre></td></tr></table></figure>
+
+<h2 id="6-file-查看文件类型"><a href="#6-file-查看文件类型" class="headerlink" title="6.file - 查看文件类型"></a>6.file - 查看文件类型</h2><p><code>file</code>命令用于接收一个文件作为参数并执行某些测试，已确定正确的文件类型。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看文件类型</span><br>file /etc/inittab<br><br><span class="hljs-comment"># 可以MIME类型的格式显示文件类型的信息</span><br>file -i  /etc/inittab<br><br><span class="hljs-comment"># 使用-N 选项，输出的队列可以以在文件名之后无空白填充的形式显示</span><br>file -N *<br></code></pre></td></tr></table></figure>
+
+<h2 id="7-wc-查看文件统计信息"><a href="#7-wc-查看文件统计信息" class="headerlink" title="7.wc - 查看文件统计信息"></a>7.wc - 查看文件统计信息</h2><p><code>wc</code>命令用于查看文件的行数、单词数和字符数等信息。语法类似如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">wc</span> filename<br>X Y Z /etc/inittab<br></code></pre></td></tr></table></figure>
+
+<p>其中X表示行数，Y表示单词数，Z表示字节数，filename表示文件名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -l选项，可以只统计文件的行数信息</span><br><span class="hljs-built_in">wc</span> -l /etc/inittab<br><br><span class="hljs-comment"># -w选项，可以只统计文件的单词数信息</span><br><span class="hljs-built_in">wc</span> -w /etc/inittab<br><br><span class="hljs-comment"># -c选项，可以只统计文件的字节数信息</span><br><span class="hljs-built_in">wc</span> -c /etc/inittab<br><br><span class="hljs-comment"># -L选项，可以只统计文件中最长的行的长度</span><br><span class="hljs-built_in">wc</span> -L /etc/inittab<br></code></pre></td></tr></table></figure>
+
+<h2 id="8-find-查找文件或目录"><a href="#8-find-查找文件或目录" class="headerlink" title="8.find - 查找文件或目录"></a>8.find - 查找文件或目录</h2><p><code>find</code>命令用于根据你指定的参数搜索和定位文件和目录的列表。<code>find</code>命令可以在多种情况下使用，比如你可以通过权限、用户、用户组、文件类型、日期、大小和其他可能的条件来查找文件。</p>
+<p><code>find</code>命令常用使用和说明如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查找指定目录下的某个文件</span><br>find /etc/ -name inittab<br><br><span class="hljs-comment"># 在当前目录下查找名称为 inittab 的文件</span><br>find . -name inittab<br><br><span class="hljs-comment"># 在当前目录下，文件不区分大小写是example的所有文件</span><br>find . -iname example<br><br><span class="hljs-comment"># 找出当前目录下所有以 sh 结尾的文件</span><br>find . -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">&quot;*.sh&quot;</span><br><br><span class="hljs-comment"># 找出当前目录下，文件权限是 777 的所有文件</span><br>find . -<span class="hljs-built_in">type</span> f -perm 777<br><br><span class="hljs-comment"># 找出当前目录下，文件权限不是 777 的所有文件</span><br>find . -<span class="hljs-built_in">type</span> f ! -perm 777<br><br><span class="hljs-comment"># 找出当前目录下所有只读文件</span><br>find . -<span class="hljs-built_in">type</span> f ! -perm /a+w<br><br><span class="hljs-comment"># 找出你帐号主目录下的所有可执行文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -perm /a+w<br><br><span class="hljs-comment"># 找出 /tmp 目录下的.log文件并将其删除：</span><br>find /tmp/ -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">&quot;*.log&quot;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -f &#123;&#125; \;<br><br><span class="hljs-comment"># 找出当前目录下的所有空文件</span><br>find . -<span class="hljs-built_in">type</span> f -empty<br><br><span class="hljs-comment"># 找出当前目录下的所有空目录</span><br>find . -<span class="hljs-built_in">type</span> d -empty<br><br><span class="hljs-comment"># 找出 /tmp 目录下的所有隐藏文件</span><br>find /tmp/ -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">&quot;.*&quot;</span><br><br><span class="hljs-comment"># 找出 /tmp 目录下，所有者是 root 的文件和目录</span><br>find /tmp/ -user root<br><br><span class="hljs-comment"># 找出 /tmp 目录下，用户组是 developer 的文件和目录</span><br>find /tmp/ -group root<br><br><span class="hljs-comment"># 找出你账号的主目录下，3 天前修改的文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -mtime 3<br><br><span class="hljs-comment"># 找出你账号的主目录下，30 天以前修改的所有文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -mtime +30<br><br><span class="hljs-comment"># 找出你账号的主目录下，3 天以内修改的所有文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -mtime -3<br><br><span class="hljs-comment"># 找出你账号的主目录下，30 天以前，60 天以内修改的所有文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -mtime +30 -mtime -60<br><br><span class="hljs-comment"># 找出 /etc 目录下，一小时以内变更过的文件</span><br>find /etc -<span class="hljs-built_in">type</span> f -cmin -60<br><br><span class="hljs-comment"># 找出 /etc 目录下，一小时以内访问过的文件</span><br>find /etc -<span class="hljs-built_in">type</span> f -amin -60<br><br><span class="hljs-comment"># 找出你账号主目录下，大小是50MB的所有文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -size 50MB<br><br><span class="hljs-comment"># 找出你账号主目录下，大于50MB小于100MB的所有文件</span><br>find ~ -<span class="hljs-built_in">type</span> f -size +50MB -size -100MB<br><br><span class="hljs-comment"># 找出你账号主目录下，大于100MB的文件并将其删除</span><br>find ~ -<span class="hljs-built_in">type</span> f -size +100MB -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -rf &#123;&#125; \;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="category-chain-item">软件工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/">#Linux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>常用Bash命令整理之查看文件和目录</div>
+      <div>http://anderwin.gtihub.io/2018/10/09/软件工具/Linux/常用Bash命令整理之查看文件和目录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>blinkfox</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年10月9日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/" title="常用Bash命令整理之操作文件和目录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">常用Bash命令整理之操作文件和目录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/09/24/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Git/Git%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" title="Git知识点整理">
+                        <span class="hidden-mobile">Git知识点整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://anderwin.github.io/" target="_blank" rel="nofollow noopener"><span>Anderwin</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
