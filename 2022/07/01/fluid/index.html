@@ -18,15 +18,15 @@
   <meta name="author" content="Anderwin">
   <meta name="keywords" content="Anderwin 运维 测试 开发">
   
-    <meta name="description" content="注入器新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容 123hexo.extend.filter.register(&amp;#x27;theme_inject&amp;#x27;, function(injects) &amp;#123;  injects.postMarkdownBegin.raw(&amp;#x27;default&amp;#x27;, &amp;#x27;&lt;iframe frame">
+    <meta name="description" content="效果请参考本页面的头部 👆 注入器新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容 123hexo.extend.filter.register(&amp;#x27;theme_inject&amp;#x27;, function(injects) &amp;#123;  injects.postMarkdownBegin.raw(&amp;#x27;default&amp;#x27;, &amp;#x27;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fluid 添加音乐功能">
 <meta property="og:url" content="http://anderwin.gtihub.io/2022/07/01/fluid/index.html">
 <meta property="og:site_name" content="Anderwin">
-<meta property="og:description" content="注入器新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容 123hexo.extend.filter.register(&amp;#x27;theme_inject&amp;#x27;, function(injects) &amp;#123;  injects.postMarkdownBegin.raw(&amp;#x27;default&amp;#x27;, &amp;#x27;&lt;iframe frame">
+<meta property="og:description" content="效果请参考本页面的头部 👆 注入器新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容 123hexo.extend.filter.register(&amp;#x27;theme_inject&amp;#x27;, function(injects) &amp;#123;  injects.postMarkdownBegin.raw(&amp;#x27;default&amp;#x27;, &amp;#x27;&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-30T16:27:15.000Z">
-<meta property="article:modified_time" content="2022-07-01T14:38:39.425Z">
+<meta property="article:modified_time" content="2022-07-01T18:53:55.602Z">
 <meta property="article:author" content="Anderwin">
 <meta property="article:tag" content="fluid">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          491 字
+          504 字
         
       </span>
     
@@ -313,7 +313,8 @@
             
               <div class="markdown-body">
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
-                <h1 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h1><p>新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容</p>
+                <p>效果请参考本页面的头部 👆</p>
+<h1 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h1><p>新建 &#x2F;scripts&#x2F;music.js 文件,写入下面内容</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">hexo.extend.filter.register<span class="hljs-params">(&#x27;theme_inject&#x27;, function(injects)</span> &#123;<br>  injects.postMarkdownBegin.raw<span class="hljs-params">(&#x27;default&#x27;, &#x27;&lt;iframe <span class="hljs-attr">frameborder</span>=&quot;no&quot; <span class="hljs-attr">border</span>=&quot;0&quot; <span class="hljs-attr">marginwidth</span>=&quot;0&quot; <span class="hljs-attr">marginheight</span>=&quot;0&quot; <span class="hljs-attr">width</span>=330 <span class="hljs-attr">height</span>=110 <span class="hljs-attr">src</span>=&quot;//music.163.com/outchain/player?<span class="hljs-attr">type</span>=0&amp;<span class="hljs-attr">id</span>=2886962881&amp;<span class="hljs-attr">auto</span>=1&amp;<span class="hljs-attr">height</span>=90&quot;&gt;&lt;/iframe&gt;&#x27;)</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <p>完成,就这么优雅.</p>
