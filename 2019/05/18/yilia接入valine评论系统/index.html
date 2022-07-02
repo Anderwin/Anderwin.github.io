@@ -26,7 +26,7 @@
 <meta property="og:description" content="前言 搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。1.多说（现在已经不能用）2.网易云跟帖（现在已经不能用）3.畅言（需要提供备案号）4.来必力（LiveRe）5.Disqus6.Hypercomments7.Valine最后选用valine这个插件，就因为它简洁">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-05-18T07:01:17.000Z">
-<meta property="article:modified_time" content="2022-06-29T13:02:19.774Z">
+<meta property="article:modified_time" content="2022-07-02T07:48:30.611Z">
 <meta property="article:author" content="Anderwin">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          2.8k 字
         
       </span>
     
@@ -317,7 +317,7 @@
 <p>搭建博客的时候 想要接入一个评论功能,查了很多资料，终于找到一个方案，做个记录方便自己方便他人。<br>1.多说（现在已经不能用）<br>2.网易云跟帖（现在已经不能用）<br>3.畅言（需要提供备案号）<br>4.来必力（LiveRe）<br>5.Disqus<br>6.Hypercomments<br>7.Valine<br>最后选用valine这个插件，就因为它简洁</p>
 <span id="more"></span>
 
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.去valine注册一个账号<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup%EF%BC%8C%E6%B3%A8%E5%86%8C%E6%88%90%E5%8A%9F%E4%B9%8B%E5%90%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84%E5%BA%94%E7%94%A8">https://leancloud.cn/dashboard/login.html#/signup，注册成功之后创建一个免费的应用</a><br>2.创建好之后进入创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的appid和appkey<br>3.在应用里面的安全中心加入自己的域名, 比如我的域名是 <a target="_blank" rel="noopener" href="https://www.anderwin.top/">https://www.anderwin.top</a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1.去valine注册一个账号<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup%EF%BC%8C%E6%B3%A8%E5%86%8C%E6%88%90%E5%8A%9F%E4%B9%8B%E5%90%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84%E5%BA%94%E7%94%A8">https://leancloud.cn/dashboard/login.html#/signup，注册成功之后创建一个免费的应用</a><br>2.创建好之后进入创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的appid和appkey<br>3.在应用里面的安全中心加入自己的域名。</p>
 <h3 id="加入代码"><a href="#加入代码" class="headerlink" title="加入代码"></a>加入代码</h3><p>1.在hexo加入valine的评论配置</p>
 <p>加入代码的文件在hexo的 themes&#x2F;yilia&#x2F;_config.yml 加到文件的最后即可</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">valine:</span> <br>  <span class="hljs-attr">appid:</span> <span class="hljs-string">5Luh2LTjNL7BdW3tUc6gN2Yb-gzGzoHsz</span> <span class="hljs-comment">#Leancloud应用的appId</span><br>  <span class="hljs-attr">appkey:</span> <span class="hljs-string">ySLSX2eHHgjme7X8QzLU6YYL</span> <span class="hljs-comment">#Leancloud应用的appKey</span><br>  <span class="hljs-attr">verify:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#验证码</span><br>  <span class="hljs-attr">notify:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#评论回复提醒</span><br>  <span class="hljs-attr">avatar:</span> <span class="hljs-string">mm</span> <span class="hljs-comment">#评论列表头像样式：&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide</span><br>  <span class="hljs-attr">placeholder:</span> <span class="hljs-string">ヾﾉ≧∀≦)o来啊，快活啊!</span> <span class="hljs-comment">#评论框占位符</span><br>  <span class="hljs-attr">pageSize:</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
