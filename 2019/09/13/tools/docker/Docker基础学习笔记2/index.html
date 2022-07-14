@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/fluid.png">
+  <link rel="icon" href="/images/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f8886">
+  <meta name="author" content="Keker">
+  <meta name="keywords" content="Keker 运维 测试 开发">
+  
+    <meta name="description" content="使用 Dockerfile定义容器Dockerfile定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期Dockerfile在此处定义的应用程序的构建 在其运行的任何位置都完全相同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker基础学习笔记2">
+<meta property="og:url" content="http://www.keker.top/2019/09/13/tools/docker/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:site_name" content="Keker">
+<meta property="og:description" content="使用 Dockerfile定义容器Dockerfile定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期Dockerfile在此处定义的应用程序的构建 在其运行的任何位置都完全相同。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.keker.top/images/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/dockerfile%E5%85%B3%E9%94%AE%E5%AD%97.jpg">
+<meta property="article:published_time" content="2019-09-13T02:05:38.000Z">
+<meta property="article:modified_time" content="2022-07-13T18:25:08.833Z">
+<meta property="article:author" content="Keker">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://www.keker.top/images/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/dockerfile%E5%85%B3%E9%94%AE%E5%AD%97.jpg">
+  
+  
+  
+  <title>Docker基础学习笔记2 - Keker</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.keker.top","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":120,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 40vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>可可托海の牧羊人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/video/">
+                <i class="iconfont icon-bilibili-fill"></i>
+                视频
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner1/8.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Docker基础学习笔记2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-09-13 10:05" pubdate>
+          2019年9月13日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          38 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Docker基础学习笔记2</h1>
+            
+            
+              <div class="markdown-body">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
+                <h2 id="使用-Dockerfile定义容器"><a href="#使用-Dockerfile定义容器" class="headerlink" title="使用 Dockerfile定义容器"></a>使用 <code>Dockerfile</code>定义容器</h2><p><code>Dockerfile</code>定义容器内环境中发生的事情。对网络接口和磁盘驱动器等资源的访问在此环境中进行虚拟化，该环境与系统的其他部分隔离，因此您需要将端口映射到外部世界，并具体说明要“复制”到哪些文件那个环境。但是，在执行此操作之后，您可以预期<code>Dockerfile</code>在此处定义的应用程序的构建 在其运行的任何位置都完全相同。</p>
+<span id="more"></span>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h3><p>在本地计算机上创建一个空目录。<code>cd</code>目录，创建一个名为<code>Dockerfile</code>的文件，将以下内容复制并粘贴到该文件中，然后保存。记下解释新Dockerfile中每个语句的注释。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># Use an official Python runtime as a parent image</span><br><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">2.7</span>-slim<br><br><span class="hljs-comment"># Set the working directory to /app</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app</span><br><br><span class="hljs-comment"># Copy the current directory contents into the container at /app</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . /app</span><br><br><span class="hljs-comment"># Install any needed packages specified in requirements.txt</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip install --trusted-host pypi.python.org -r requirements.txt</span><br><br><span class="hljs-comment"># Make port 80 available to the world outside this container</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br><br><span class="hljs-comment"># Define environment variable</span><br><span class="hljs-keyword">ENV</span> NAME World<br><br><span class="hljs-comment"># Run app.py when the container launches</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;app.py&quot;</span>]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="/images/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/dockerfile%E5%85%B3%E9%94%AE%E5%AD%97.jpg" srcset="/img/loading.gif" lazyload alt="dockerfile关键字"></p>
+<h2 id="应用程序本身"><a href="#应用程序本身" class="headerlink" title="应用程序本身"></a>应用程序本身</h2><p>再创建两个文件，<code>requirements.txt</code>然后<code>app.py</code>将它们放在同一个文件夹中<code>Dockerfile</code>。这完成了我们的应用程序，您可以看到它非常简单。当上述<code>Dockerfile</code>被内置到的图像，<code>app.py</code>并且 <code>requirements.txt</code>是因为存在<code>Dockerfile</code>的<code>COPY</code>命令，并从输出<code>app.py</code>是通过HTTP得益于访问<code>EXPOSE</code> 命令。</p>
+<h3 id="requirements-txt-存放依赖性软包"><a href="#requirements-txt-存放依赖性软包" class="headerlink" title="requirements.txt 存放依赖性软包"></a><code>requirements.txt</code> 存放依赖性软包</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Flask</span><br><span class="hljs-attribute">Redis</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="构建应用程序"><a href="#构建应用程序" class="headerlink" title="构建应用程序"></a>构建应用程序</h2><p>我们准备构建应用程序。确保您仍处于新目录的顶层。这是<code>ls</code>应该显示的内容：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">ls</span><br>Dockerfile		app.py			requirements.txt<br></code></pre></td></tr></table></figure>
+
+<p>现在运行build命令。这将创建一个Docker镜像，我们将使用该<code>--tag</code>选项命名。使用<code>-t</code>，如果你想用较短的选项。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker build --tag</span>=friendlyhello .<br></code></pre></td></tr></table></figure>
+
+<p>你的建筑镜像在哪里？它位于您机器的本地Docker镜像注册表中：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ docker image ls<br><br>REPOSITORY            <span class="hljs-keyword">TAG</span>                 <span class="hljs-title">IMAGE</span> ID<br>friendlyhello         latest              <span class="hljs-number">326387</span>cea398<br></code></pre></td></tr></table></figure>
+
+<p>注意标签是如何默认的<code>latest</code>。标签选项的完整语法类似于<code>--tag=friendlyhello:v0.0.1</code>。</p>
+<blockquote>
+<p>Linux用户的故障排除</p>
+<p><em>代理服务器设置</em></p>
+<p>代理服务器可以在Web应用程序启动并运行后阻止其连接。如果您位于代理服务器后面，请<code>RUN pip</code>在Dockerfile中添加以下行，使用该<code>ENV</code>命令指定代理服务器的主机和端口：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># Set proxy server, replace host:port with values for your servers</span><br><span class="hljs-keyword">ENV</span> http_proxy host:port<br><span class="hljs-keyword">ENV</span> https_proxy host:port<br></code></pre></td></tr></table></figure>
+
+<p><em>DNS设置</em></p>
+<p>DNS配置错误可能会产生问题<code>pip</code>。您需要设置自己的DNS服务器地址才能<code>pip</code>正常工作。您可能想要更改Docker守护程序的DNS设置。您可以<code>/etc/docker/daemon.json</code>使用<code>dns</code>密钥编辑（或创建）配置文件，如下所示：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs prolog">&#123;<br>  <span class="hljs-string">&quot;dns&quot;</span>: [<span class="hljs-string">&quot;your_dns_address&quot;</span>, <span class="hljs-string">&quot;8.8.8.8&quot;</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，列表的第一个元素是DNS服务器的地址。第二项是Google的DNS，可在第一项无法使用时使用。</p>
+<p>在继续之前，请保存<code>daemon.json</code>并重新启动docker服务。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo service docker restart</span><br></code></pre></td></tr></table></figure>
+
+<p>修复后，重试运行该<code>build</code>命令。</p>
+<p><em>MTU设置</em></p>
+<p>如果默认网桥上的MTU（默认值为1500）大于主机外部网络的MTU，则<code>pip</code>失败。通过<code>/etc/docker/daemon.json</code>使用<code>mtu</code>密钥编辑（或创建）配置文件来设置docker bridge网络的MTU以匹配主机的MTU ，如下所示：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml">&#123;<br>  <span class="hljs-attr">&quot;mtu&quot;:</span> <span class="hljs-number">1450</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在继续之前，请保存<code>daemon.json</code>并重新启动docker服务。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo systemctl restart docker</span><br></code></pre></td></tr></table></figure>
+
+<p>重新运行该<code>build</code>命令。</p>
+</blockquote>
+<h2 id="运行应用程序"><a href="#运行应用程序" class="headerlink" title="运行应用程序"></a>运行应用程序</h2><p>运行应用程序，使用以下方法将计算机的端口4000映射到容器的已发布端口80 <code>-p</code>：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run -p <span class="hljs-number">4000</span>:<span class="hljs-number">80</span> friendlyhello<br></code></pre></td></tr></table></figure>
+
+<p>您应该看到Python正在为您的应用提供服务的消息<code>http://0.0.0.0:80</code>。但是该消息来自容器内部，它不知道您将该容器的端口80映射到4000，从而生成正确的URL <code>http://localhost:4000</code>。</p>
+<blockquote>
+<p><strong>注意</strong>：如果您在Windows 7上使用Docker Toolbox，请使用Docker Machine IP而不是<code>localhost</code>。例如，http：&#x2F;&#x2F;192.168.99.100：4000 &#x2F;。要查找IP地址，请使用该命令<code>docker-machine ip</code>。</p>
+</blockquote>
+<p>您还可以<code>curl</code>在shell中使用该命令来查看相同的内容。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">$ curl http://localhost:4000<br><br><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Hostname:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 8fc990912a14<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Visits:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>cannot connect to Redis, counter disabled<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>现在让我们在后台以分离模式运行应用程序：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run -d -p <span class="hljs-number">4000</span>:<span class="hljs-number">80</span> friendlyhello<br></code></pre></td></tr></table></figure>
+
+<p>您获得应用程序的长容器ID，然后被踢回终端。您的容器正在后台运行。您还可以看到缩写的容器ID <code>docker container ls</code>（并且在运行命令时两者都可以互换）：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mel">$ docker <span class="hljs-keyword">container</span> <span class="hljs-keyword">ls</span><br>CONTAINER ID        IMAGE               COMMAND             CREATED<br><span class="hljs-number">1</span>fa4ab2cf395        friendlyhello       <span class="hljs-string">&quot;python app.py&quot;</span>     <span class="hljs-number">28</span> seconds ago<br></code></pre></td></tr></table></figure>
+
+<p>请注意<code>CONTAINER ID</code>匹配的内容<code>http://localhost:4000</code>。</p>
+<p>现在<code>docker container stop</code>用来结束这个过程，使用<code>CONTAINER ID</code>如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> container stop <span class="hljs-number">1</span>fa4ab2cf395<br></code></pre></td></tr></table></figure>
+
+<h2 id="分享你的镜像"><a href="#分享你的镜像" class="headerlink" title="分享你的镜像"></a>分享你的镜像</h2><p>为了演示我们刚刚创建的内容的可移植性，让我们上传我们构建的图像并在其他地方运行它。毕竟，当您想要将容器部署到生产环境时，您需要知道如何推送到注册表。</p>
+<p>注册表是存储库的集合，存储库是图像的集合 - 类似于GitHub存储库，除了代码已经构建。注册表上的帐户可以创建许多存储库。该<code>docker</code>CLI使用泊坞窗的公共注册表默认情况下。</p>
+<h2 id="回顾和备忘单（可选）"><a href="#回顾和备忘单（可选）" class="headerlink" title="回顾和备忘单（可选）"></a>回顾和备忘单（可选）</h2><p>以下是此页面中基本Docker命令的列表，以及一些相关的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Create image using this directory&#x27;s Dockerfile</span><br><span class="hljs-comment"># 使用此目录的Dockerfile创建映像</span><br>docker build -t friendlyhello .  <br><br><span class="hljs-comment"># Run &quot;friendlyhello&quot; mapping port 4000 to 80</span><br><span class="hljs-comment"># 运行“friendlyhello”映射端口4000到80</span><br>docker run -p 4000:80 friendlyhello  <br><br><span class="hljs-comment"># Same thing, but in detached mode</span><br><span class="hljs-comment"># 运行，但处于分离模式</span><br>docker run -d -p 4000:80 friendlyhello <br><br><span class="hljs-comment"># List all running containers</span><br><span class="hljs-comment"># 列出所有正在运行的容器</span><br>docker container <span class="hljs-built_in">ls</span><br><br><span class="hljs-comment"># List all containers, even those not running</span><br><span class="hljs-comment"># 列出所有容器，甚至是那些未运行的容器</span><br>docker container <span class="hljs-built_in">ls</span> -a <br><br><span class="hljs-comment"># Gracefully stop the specified container</span><br><span class="hljs-comment"># 优雅地停止指定的容器</span><br>docker container stop &lt;<span class="hljs-built_in">hash</span>&gt;  <br><br><span class="hljs-comment"># Force shutdown of the specified container</span><br><span class="hljs-comment"># 强制关闭指定的容器</span><br>docker container <span class="hljs-built_in">kill</span> &lt;<span class="hljs-built_in">hash</span>&gt; <br><br><span class="hljs-comment"># Remove specified container from this machine</span><br><span class="hljs-comment"># 从此计算机中删除指定的容器</span><br>docker container <span class="hljs-built_in">rm</span> &lt;<span class="hljs-built_in">hash</span>&gt; <br><br><span class="hljs-comment"># Remove all containers</span><br><span class="hljs-comment"># 删除所有容器</span><br>docker container <span class="hljs-built_in">rm</span> $(docker container <span class="hljs-built_in">ls</span> -a -q) <br><br><span class="hljs-comment"># List all images on this machine</span><br><span class="hljs-comment"># 列出本机上的所有镜像</span><br>docker image <span class="hljs-built_in">ls</span> -a <br><br><span class="hljs-comment"># Remove specified image from this machine</span><br><span class="hljs-comment"># 从本机删除指定的图像</span><br>docker image <span class="hljs-built_in">rm</span> &lt;image <span class="hljs-built_in">id</span>&gt;  <br><br><span class="hljs-comment"># Remove all images from this machine</span><br><span class="hljs-comment"># 从本机删除所有图像</span><br>docker image <span class="hljs-built_in">rm</span> $(docker image <span class="hljs-built_in">ls</span> -a -q)  <br><br><span class="hljs-comment"># Log in this CLI session using your Docker credentials</span><br><span class="hljs-comment"># 使用Docker凭据登录此CLI会话</span><br>docker login   <br><br><span class="hljs-comment"># Tag &lt;image&gt; for upload to registry</span><br><span class="hljs-comment"># 标记&lt;image&gt;以上传到注册表</span><br>docker tag &lt;image&gt; username/repository:tag  <br><br><span class="hljs-comment"># Upload tagged image to registry</span><br><span class="hljs-comment"># 将标记图像上载到注册表</span><br>docker push username/repository:tag <br><br><span class="hljs-comment"># Run image from a registry</span><br><span class="hljs-comment"># 从注册表运行镜像</span><br>docker run username/repository:tag                   <br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4/" class="category-chain-item">自动化运维</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>
+      
+        <a href="/tags/Docker/">#Docker</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Docker基础学习笔记2</div>
+      <div>http://www.keker.top/2019/09/13/tools/docker/Docker基础学习笔记2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Keker</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年9月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/13/tools/docker/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" title="Docker基础学习笔记3">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker基础学习笔记3</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/13/tools/docker/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" title="Docker基础学习笔记1">
+                        <span class="hidden-mobile">Docker基础学习笔记1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://www.keker.top/" target="_blank" rel="nofollow noopener"><span>Keker</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

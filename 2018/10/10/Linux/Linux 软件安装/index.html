@@ -1,0 +1,732 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/fluid.png">
+  <link rel="icon" href="/images/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f8886">
+  <meta name="author" content="Keker">
+  <meta name="keywords" content="Keker 运维 测试 开发">
+  
+    <meta name="description" content="1.源码编译安装 下载源码文件 wget url 减压包 tar xvf 包名 编译安装需要提前安装好编译器 gcc  1234cd 包文件夹.&#x2F;configuremakemake install 优点：安装的软件能更好的兼容本机，卸载软件只需删除安装目录缺点：安装时间长，容易出错 2.二进制包 rpm1234# 安装rpm -ivh 包全名# 卸载rpm -e 包名  优点：安装速度快，缺点：软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 软件安装">
+<meta property="og:url" content="http://www.keker.top/2018/10/10/Linux/Linux%20%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Keker">
+<meta property="og:description" content="1.源码编译安装 下载源码文件 wget url 减压包 tar xvf 包名 编译安装需要提前安装好编译器 gcc  1234cd 包文件夹.&#x2F;configuremakemake install 优点：安装的软件能更好的兼容本机，卸载软件只需删除安装目录缺点：安装时间长，容易出错 2.二进制包 rpm1234# 安装rpm -ivh 包全名# 卸载rpm -e 包名  优点：安装速度快，缺点：软">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-10T15:10:00.000Z">
+<meta property="article:modified_time" content="2022-07-14T16:30:15.829Z">
+<meta property="article:author" content="Keker">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Linux 软件安装 - Keker</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.keker.top","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":120,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 40vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>可可托海の牧羊人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/video/">
+                <i class="iconfont icon-bilibili-fill"></i>
+                视频
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner1/12.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Linux 软件安装"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-10-10 23:10" pubdate>
+          2018年10月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux 软件安装</h1>
+            
+            
+              <div class="markdown-body">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
+                <h2 id="1-源码编译安装"><a href="#1-源码编译安装" class="headerlink" title="1.源码编译安装"></a>1.源码编译安装</h2><ul>
+<li>下载源码文件 <code>wget url</code></li>
+<li>减压包 <code>tar xvf 包名</code></li>
+<li>编译安装<br>需要提前安装好编译器 gcc</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">cd</span> 包文件夹<br>./configure<br><span class="hljs-keyword">make</span><br><span class="hljs-keyword">make</span> install<br></code></pre></td></tr></table></figure>
+<p>优点：安装的软件能更好的兼容本机，卸载软件只需删除安装目录<br>缺点：安装时间长，容易出错</p>
+<h2 id="2-二进制包-rpm"><a href="#2-二进制包-rpm" class="headerlink" title="2.二进制包 rpm"></a>2.二进制包 rpm</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 安装</span><br><span class="hljs-attribute">rpm</span> -ivh 包全名<br><span class="hljs-comment"># 卸载</span><br>rpm -e 包名<br></code></pre></td></tr></table></figure>
+
+<p>优点：安装速度快，<br>缺点：软件依赖安装复杂</p>
+<h2 id="3-包管理器安装-yum、apt、pip"><a href="#3-包管理器安装-yum、apt、pip" class="headerlink" title="3.包管理器安装 yum、apt、pip"></a>3.包管理器安装 yum、apt、pip</h2><h3 id="设置国内软件镜像源"><a href="#设置国内软件镜像源" class="headerlink" title="设置国内软件镜像源"></a>设置国内软件镜像源</h3><h4 id="centos设置镜像帮助文档"><a href="#centos设置镜像帮助文档" class="headerlink" title="centos设置镜像帮助文档"></a>centos设置镜像帮助文档</h4><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>&gt; <a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/centos/">centos镜像配置页</a>&gt; <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/centos/">centos镜像下载页</a>&gt;<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/centos/">清华镜像站</a></p>
+<p>默认生效的源配置文件<br>&#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo</p>
+<p>镜像源地址<br><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos">https://mirrors.aliyun.com/centos</a><br><a target="_blank" rel="noopener" href="https://mirrors.163.com/centos">https://mirrors.163.com/centos</a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/centos/">https://mirrors.tuna.tsinghua.edu.cn/centos/</a></p>
+<hr>
+<h4 id="ubuntu设置镜像帮助文档"><a href="#ubuntu设置镜像帮助文档" class="headerlink" title="ubuntu设置镜像帮助文档"></a>ubuntu设置镜像帮助文档</h4><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>&gt; <a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/ubuntu/">ubuntu镜像配置页</a>&gt; <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu/">ubuntu镜像下载页</a>&gt;<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华镜像站</a></p>
+<p>默认生效的源配置文件<br>&#x2F;etc&#x2F;apt&#x2F;sources.list</p>
+<p>镜像源地址<br><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/ubuntu">https://mirrors.aliyun.com/ubuntu</a><br><a target="_blank" rel="noopener" href="https://mirrors.163.com/ubuntu">https://mirrors.163.com/ubuntu</a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a></p>
+<p>其他不错的 yum 源，比如中科大和搜狐。</p>
+<p>中科大的 yum 源，安装方法查看：<a target="_blank" rel="noopener" href="https://lug.ustc.edu.cn/wiki/mirrors/help/centos">https://lug.ustc.edu.cn/wiki/mirrors/help/centos</a><br>sohu 的 yum 源安装方法查看： <a target="_blank" rel="noopener" href="http://mirrors.sohu.com/help/centos.html">http://mirrors.sohu.com/help/centos.html</a></p>
+<p>运行以下命令生成缓存</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">yum clean <span class="hljs-keyword">all</span><br>yum makecache<br></code></pre></td></tr></table></figure>
+
+<h3 id="本地光盘yum源"><a href="#本地光盘yum源" class="headerlink" title="本地光盘yum源"></a>本地光盘yum源</h3><ol>
+<li><p>挂载光盘</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># cdrom 的名字比如：sr0</span><br>mkdir <span class="hljs-regexp">/mnt/</span>cdrom<br>mount <span class="hljs-regexp">/dev/</span>cdrom <span class="hljs-regexp">/mnt/</span>cdrom <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>修改yum源配置文件后缀名，使其失效</p>
+</li>
+<li><p>让光盘yum源配置文件生效<br><code>vi /etc/yum.repos.d/Centos-Media.repo</code><br>修改配置文件里光盘的路径 <code>/mnt/cdrom</code><br>修改 <code>enabled=1</code></p>
+</li>
+</ol>
+<p>验证是否修改成功<br>yum list 后，最后一列显示源的名字 [c7-media]</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> 包名<br>apt <span class="hljs-keyword">install</span> 包名<br></code></pre></td></tr></table></figure>
+
+<p>优点：简单快速，不用管依赖的问题。<br>缺点：卸载软件卸不干净</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li><ol>
+<li>列出所有可更新的软件清单命令：yum check-update</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>更新所有软件命令：yum update</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>仅安装指定的软件命令：yum install <package_name></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>仅更新指定的软件命令：yum update <package_name></li>
+</ol>
+</li>
+<li><ol start="5">
+<li>列出所有可安裝的软件清单命令：yum list</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>删除软件包命令：yum remove <package_name></li>
+</ol>
+</li>
+<li><ol start="7">
+<li>查找软件包命令：yum search &lt;关键字&gt;</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>清除缓存命令:</li>
+</ol>
+<ul>
+<li>yum clean packages： 清除缓存目录下的软件包</li>
+<li>yum clean headers： 清除缓存目录下的 headers</li>
+<li>yum clean oldheaders： 清除缓存目录下旧的 headers</li>
+<li>yum clean， yum clean all （&#x3D; yum clean packages; yum clean oldheaders） ：清除缓存目录下的软件包及旧的 headers</li>
+</ul>
+</li>
+</ul>
+<p>组管理命令</p>
+<ul>
+<li>列出所有可用的软件类表<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yum grouplist</span><br></code></pre></td></tr></table></figure></li>
+<li>安装指定软件组，组名由 yum grouplist 查询出来<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">yum</span> grupinstall 软件组名<br></code></pre></td></tr></table></figure></li>
+<li>卸载指定软件组<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">yum</span> groupremove 软件组名<br></code></pre></td></tr></table></figure>
+举例</li>
+</ul>
+<p>Linux LANG变量设置：定义系统的主语系环境</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@localhost</span> src]<span class="hljs-meta"># echo $LANG  </span><br>zh_CN.UTF<span class="hljs-number">-8</span><br></code></pre></td></tr></table></figure>
+<p>设置中文 <code>LANG=zh_CN.utf8</code><br>设置英文  <code>LANG=en_US</code>  </p>
+<p>原则 能不升级就不升级，除非有重大安全问题，关键要保证稳定运行。即使升级，只升级有问题的单个软件包。<br>服务器使用最小化安装，用什么装什么，尽量不卸载。不建议yum卸载，有很多依赖相关的坑。</p>
+<h2 id="4-脚本安装"><a href="#4-脚本安装" class="headerlink" title="4.脚本安装"></a>4.脚本安装</h2><p>把以上三种安装方式的整个流程写出一个脚本程序，只需执行脚本就可以一键安装。</p>
+<p>举例：ngnix 脚本安装</p>
+<p><a target="_blank" rel="noopener" href="https://www.lnmp.org/">https://www.lnmp.org/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="category-chain-item">软件工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/">#Linux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Linux 软件安装</div>
+      <div>http://www.keker.top/2018/10/10/Linux/Linux 软件安装/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Keker</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年10月10日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/11/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" title="常用Bash命令整理之文本处理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">常用Bash命令整理之文本处理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/10/09/Linux/Linux%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="Linux 文件管理">
+                        <span class="hidden-mobile">Linux 文件管理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://www.keker.top/" target="_blank" rel="nofollow noopener"><span>Keker</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
