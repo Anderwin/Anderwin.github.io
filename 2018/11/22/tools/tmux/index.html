@@ -18,23 +18,23 @@
   <meta name="author" content="Keker">
   <meta name="keywords" content="木羊人 博客 Keker 运维 测试 开发">
   
-    <meta name="description" content="一、Tmux 是什么1.1 会话与进程命令行的使用方式是，打开一个终端窗口，在里面输入命令。用户与计算机的这种交互，称为一次”会话”（session） 。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。一个常见的使用场景是，使用SSH远程管理服务器，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一">
+    <meta name="description" content="一、tmux 是什么1.1 会话与进程命令行的使用方式是，打开一个终端窗口，在里面输入命令。用户与计算机的这种交互，称为一次”会话”（session） 。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。一个常见的使用场景是，使用SSH远程管理服务器，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tmux 终端复用器，终端窗口管理神器">
+<meta property="og:title" content="tmux 终端复用器，终端窗口管理神器">
 <meta property="og:url" content="http://www.keker.top/2018/11/22/tools/tmux/index.html">
 <meta property="og:site_name" content="木羊人-Keker">
-<meta property="og:description" content="一、Tmux 是什么1.1 会话与进程命令行的使用方式是，打开一个终端窗口，在里面输入命令。用户与计算机的这种交互，称为一次”会话”（session） 。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。一个常见的使用场景是，使用SSH远程管理服务器，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一">
+<meta property="og:description" content="一、tmux 是什么1.1 会话与进程命令行的使用方式是，打开一个终端窗口，在里面输入命令。用户与计算机的这种交互，称为一次”会话”（session） 。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。一个常见的使用场景是，使用SSH远程管理服务器，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-11-22T15:30:00.000Z">
-<meta property="article:modified_time" content="2022-07-16T04:16:40.591Z">
+<meta property="article:modified_time" content="2022-07-19T08:10:40.902Z">
 <meta property="article:author" content="Keker">
-<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Linux基础">
 <meta property="article:tag" content="tmux">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Tmux 终端复用器，终端窗口管理神器 - 木羊人-Keker</title>
+  <title>tmux 终端复用器，终端窗口管理神器 - 木羊人-Keker</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Tmux 终端复用器，终端窗口管理神器"></span>
+            <span id="subtitle" data-typed-text="tmux 终端复用器，终端窗口管理神器"></span>
           
         </div>
 
@@ -309,12 +309,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Tmux 终端复用器，终端窗口管理神器</h1>
+            <h1 style="display: none">tmux 终端复用器，终端窗口管理神器</h1>
             
             
               <div class="markdown-body">
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
-                <h2 id="一、Tmux-是什么"><a href="#一、Tmux-是什么" class="headerlink" title="一、Tmux 是什么"></a>一、Tmux 是什么</h2><h3 id="1-1-会话与进程"><a href="#1-1-会话与进程" class="headerlink" title="1.1 会话与进程"></a>1.1 会话与进程</h3><p>命令行的使用方式是，打开一个终端窗口，在里面输入命令。<strong>用户与计算机的这种交互，称为一次”会话”（session）</strong> 。</p>
+                <h2 id="一、tmux-是什么"><a href="#一、tmux-是什么" class="headerlink" title="一、tmux 是什么"></a>一、tmux 是什么</h2><h3 id="1-1-会话与进程"><a href="#1-1-会话与进程" class="headerlink" title="1.1 会话与进程"></a>1.1 会话与进程</h3><p>命令行的使用方式是，打开一个终端窗口，在里面输入命令。<strong>用户与计算机的这种交互，称为一次”会话”（session）</strong> 。</p>
 <p>会话的一个重要特点是，窗口与其中启动的进程是连在一起的。关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。一个常见的使用场景是，使用SSH远程管理服务器，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。</p>
 <p>Tmux 就是为了解决这个问题，窗口关闭时，会话并不终止，需要的时候再让会话”绑定”链接，这就是终端复用。</p>
 <h3 id="1-2-Tmux-的作用"><a href="#1-2-Tmux-的作用" class="headerlink" title="1.2 Tmux 的作用"></a>1.2 Tmux 的作用</h3><p><strong>Tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。</strong></p>
@@ -587,7 +587,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>
+        <a href="/tags/Linux%E5%9F%BA%E7%A1%80/">#Linux基础</a>
       
         <a href="/tags/tmux/">#tmux</a>
       
@@ -601,7 +601,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Tmux 终端复用器，终端窗口管理神器</div>
+      <div>tmux 终端复用器，终端窗口管理神器</div>
       <div>http://www.keker.top/2018/11/22/tools/tmux/</div>
     </div>
     <div class="license-meta">
@@ -654,8 +654,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2018/11/18/tools/git/" title="版本管理工具git">
-                        <span class="hidden-mobile">版本管理工具git</span>
+                      <a href="/2018/11/18/tools/git/" title="git 版本管理工具">
+                        <span class="hidden-mobile">git 版本管理工具</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -693,7 +693,7 @@
         aria-expanded="true"
       >
         软件工具
-        <span class="list-group-count">(8)</span>
+        <span class="list-group-count">(6)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -707,19 +707,28 @@
     
       
       
-        <a href="/2019/08/27/tools/gitbook/" title="GitBook ,你人生的第一本书"
+        <a href="/2019/08/27/tools/gitbook/" title="GitBook 你人生的第一本书"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">GitBook ,你人生的第一本书</span>
+          <span class="category-post">GitBook 你人生的第一本书</span>
         </a>
       
     
       
       
-        <a href="/2018/11/22/tools/tmux/" title="Tmux 终端复用器，终端窗口管理神器"
+        <a href="/2018/11/18/tools/git/" title="git 版本管理工具"
            class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">Tmux 终端复用器，终端窗口管理神器</span>
+           ">
+          <span class="category-post">git 版本管理工具</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/05/13/tools/htop/" title="htop 进程查看器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">htop 进程查看器</span>
         </a>
       
     
@@ -734,46 +743,19 @@
     
       
       
-        <a href="/2019/05/13/tools/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="vscode快捷键"
+        <a href="/2018/11/22/tools/tmux/" title="tmux 终端复用器，终端窗口管理神器"
            class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">vscode快捷键</span>
+           active">
+          <span class="category-post">tmux 终端复用器，终端窗口管理神器</span>
         </a>
       
     
       
       
-        <a href="/2018/10/13/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="常用Bash命令整理之其他常用命令"
+        <a href="/2019/11/16/tools/vim/" title="vim 编辑器之神"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">常用Bash命令整理之其他常用命令</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2018/10/11/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" title="常用Bash命令整理之文本处理"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">常用Bash命令整理之文本处理</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2018/11/18/tools/git/" title="版本管理工具git"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">版本管理工具git</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019/11/16/tools/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9EVim/" title="编辑器之神Vim"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">编辑器之神Vim</span>
+          <span class="category-post">vim 编辑器之神</span>
         </a>
       
     

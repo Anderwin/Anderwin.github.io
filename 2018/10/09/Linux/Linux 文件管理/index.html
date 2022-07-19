@@ -18,18 +18,18 @@
   <meta name="author" content="Keker">
   <meta name="keywords" content="木羊人 博客 Keker 运维 测试 开发">
   
-    <meta name="description" content="基本文件操作 查看文件  1234567ls [选项] [文件或目录] # []里的内容表示可选项	选项	-a 显示所有文件，包括隐藏文件	-l 显示详细信息	-d 查看目录属性	-h 人性化显示文件大小	-i 显示inode (ID号、索引节点)   创建目录  123mkdir [选项] [目录名]	-p 递归创建目录   切换目录  1234567cd [目录]cd ~  进入当前家目录cd">
+    <meta name="description" content="一、基本文件操作 查看文件  1234567ls [选项] [文件或目录] # []里的内容表示可选项	选项	-a 显示所有文件，包括隐藏文件	-l 显示详细信息	-d 查看目录属性	-h 人性化显示文件大小	-i 显示inode (ID号、索引节点)   创建目录  123mkdir [选项] [目录名]	-p 递归创建目录   切换目录  1234567cd [目录]cd ~  进入当前家目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 文件管理">
 <meta property="og:url" content="http://www.keker.top/2018/10/09/Linux/Linux%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="木羊人-Keker">
-<meta property="og:description" content="基本文件操作 查看文件  1234567ls [选项] [文件或目录] # []里的内容表示可选项	选项	-a 显示所有文件，包括隐藏文件	-l 显示详细信息	-d 查看目录属性	-h 人性化显示文件大小	-i 显示inode (ID号、索引节点)   创建目录  123mkdir [选项] [目录名]	-p 递归创建目录   切换目录  1234567cd [目录]cd ~  进入当前家目录cd">
+<meta property="og:description" content="一、基本文件操作 查看文件  1234567ls [选项] [文件或目录] # []里的内容表示可选项	选项	-a 显示所有文件，包括隐藏文件	-l 显示详细信息	-d 查看目录属性	-h 人性化显示文件大小	-i 显示inode (ID号、索引节点)   创建目录  123mkdir [选项] [目录名]	-p 递归创建目录   切换目录  1234567cd [目录]cd ~  进入当前家目录">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg">
 <meta property="article:published_time" content="2018-10-09T14:45:00.000Z">
-<meta property="article:modified_time" content="2022-07-15T14:41:28.812Z">
+<meta property="article:modified_time" content="2022-07-19T04:29:37.913Z">
 <meta property="article:author" content="Keker">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Linux基础">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg">
   
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          3.1k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          31 分钟
+          26 分钟
         
       </span>
     
@@ -315,7 +315,7 @@
             
               <div class="markdown-body">
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
-                <h2 id="基本文件操作"><a href="#基本文件操作" class="headerlink" title="基本文件操作"></a>基本文件操作</h2><ol>
+                <h2 id="一、基本文件操作"><a href="#一、基本文件操作" class="headerlink" title="一、基本文件操作"></a>一、基本文件操作</h2><ol>
 <li>查看文件</li>
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css">ls <span class="hljs-selector-attr">[选项]</span> <span class="hljs-selector-attr">[文件或目录]</span> # <span class="hljs-selector-attr">[]</span>里的内容表示可选项<br>	选项<br>	-<span class="hljs-selector-tag">a</span> 显示所有文件，包括隐藏文件<br>	-l 显示详细信息<br>	-d 查看目录属性<br>	-h 人性化显示文件大小<br>	-<span class="hljs-selector-tag">i</span> 显示inode (ID号、索引节点)<br></code></pre></td></tr></table></figure>
@@ -376,7 +376,7 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">ln</span> -s [原文件] [目标文件] <span class="hljs-comment"># 生成链接文件</span><br>选项 -s 创建软链接<br></code></pre></td></tr></table></figure>
 
-<h2 id="文件搜索查找"><a href="#文件搜索查找" class="headerlink" title="文件搜索查找"></a>文件搜索查找</h2><ol>
+<h2 id="二、文件搜索查找"><a href="#二、文件搜索查找" class="headerlink" title="二、文件搜索查找"></a>二、文件搜索查找</h2><ol>
 <li><p><code>locate 文件名</code>       #  文件搜索，基于本地数据库搜索，速度快，刚建立的文件需等待数据库更新。搜索的数据库 &#x2F;var&#x2F;lib&#x2F;mlocate，<code>updatedb</code>手动更新此数据库。</p>
 </li>
 <li><p>命令搜索</p>
@@ -402,7 +402,7 @@
 
 
 
-<h2 id="文件压缩减压"><a href="#文件压缩减压" class="headerlink" title="文件压缩减压"></a>文件压缩减压</h2><p>常用的压缩格式:        .zip        .gz       .bz2</p>
+<h2 id="三、文件压缩减压"><a href="#三、文件压缩减压" class="headerlink" title="三、文件压缩减压"></a>三、文件压缩减压</h2><p>常用的压缩格式:        .zip        .gz       .bz2</p>
 <p>常用的压缩格式：      .tar.gz          .tar.bz2</p>
 <ol>
 <li>zip格式</li>
@@ -418,10 +418,15 @@
 <li>.bz2格式</li>
 </ol>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-comment"># 压缩为.bz2格式，不保留源文件</span><br><span class="hljs-keyword">bzip2 </span>源文件<br><span class="hljs-comment"># 压缩后保留源文件</span><br><span class="hljs-keyword">bzip2 </span>-k 源文件<br><br>注意：<span class="hljs-keyword">bzip2 </span>不能压缩目录<br><br><span class="hljs-comment"># 减压缩 -k 保留压缩文件</span><br><span class="hljs-keyword">bzip2 </span>-d 压缩文件<br><span class="hljs-keyword">bunzip2 </span>压缩文件<br><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
-<li>打包命令<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">tar -cvf  打包文件名 源文件<br>选项<br>	-c 打包<br>	-v 显示过程<br>	-f 指定打包后的文件名<br>	-x 减压缩tar.gz格式<br>	-z 压缩为<span class="hljs-string">.tar.gz</span>格式<br>例如<br>tar -cvf test.tar test<br><br><span class="hljs-comment"># tar.gz格式是先打包为.tar，再压缩为.gz格式</span><br>tar -zcvf 压缩包名<span class="hljs-string">.tar.gz</span> 源文件<br><span class="hljs-comment"># 解压缩包</span><br>tar -xcvf 压缩包名<span class="hljs-string">.tar.gz</span> <br></code></pre></td></tr></table></figure></li>
+<li>打包命令</li>
 </ol>
-<h2 id="文件权限管理"><a href="#文件权限管理" class="headerlink" title="文件权限管理"></a>文件权限管理</h2><h3 id="1-文件基本权限"><a href="#1-文件基本权限" class="headerlink" title="1. 文件基本权限"></a>1. 文件基本权限</h3><ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">tar -cvf  打包文件名 源文件<br>选项<br>	-c 打包<br>	-v 显示过程<br>	-f 指定打包后的文件名<br>	-x 减压缩tar.gz格式<br>	-z 压缩为<span class="hljs-string">.tar.gz</span>格式<br>例如<br>tar -cvf test.tar test<br><br><span class="hljs-comment"># tar.gz格式是先打包为.tar，再压缩为.gz格式</span><br>tar -zcvf 压缩包名<span class="hljs-string">.tar.gz</span> 源文件<br><span class="hljs-comment"># 解压缩包</span><br>tar -xcvf 压缩包名<span class="hljs-string">.tar.gz</span> <br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、文件权限管理"><a href="#四、文件权限管理" class="headerlink" title="四、文件权限管理"></a>四、文件权限管理</h2><h3 id="1-文件基本权限"><a href="#1-文件基本权限" class="headerlink" title="1. 文件基本权限"></a>1. 文件基本权限</h3><ol>
 <li>基本权限的修改</li>
 </ol>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">[py@mini ~]$ ll<br>lrwxrwxrwx.  <span class="hljs-number"> 1 </span>root root   <span class="hljs-number"> 7 </span>7月  <span class="hljs-number"> 7 </span>16:26 bin -&gt; usr/bin<br>drwxr-xr-x.<span class="hljs-number"> 19 </span>py py   <span class="hljs-number"> 8192 </span>7月  <span class="hljs-number"> 8 </span>15:06 htop-3.2.1<br>-rw-rw-r--. <span class="hljs-number"> 1 </span>py py      <span class="hljs-number"> 0 </span>7月  <span class="hljs-number"> 7 </span>19:24 test.txt<br>drwxrwxr-x. <span class="hljs-number"> 6 </span>py py  <span class="hljs-number"> 12288 </span>7月  <span class="hljs-number"> 8 </span>02:34 tmux-3.3a<br></code></pre></td></tr></table></figure>
@@ -453,7 +458,7 @@
 <li><p>w 用2表示，</p>
 </li>
 <li><p>x 用1表示</p>
-<p> rwxr-xr-x  用数字表示为 755，7表示所有者权限，5表示所有组，5表示其他。</p>
+<p>rwxr-xr-x  用数字表示为 755，7表示所有者权限，5表示所有组，5表示其他。</p>
 <p>常用权限</p>
 <p><strong>777</strong>最高权限，<strong>666</strong>文件的最高权限；</p>
 <p><strong>755</strong>普通可执行权限，<strong>644</strong>普通文件权限。</p>
@@ -484,7 +489,7 @@
 <p><code>chgrp 组名 文件名</code>    # 改变文件的所属组</p>
 </li>
 </ol>
-<h3 id="2-文件默认权限"><a href="#2-文件默认权限" class="headerlink" title="2. 文件默认权限"></a>2. 文件默认权限</h3><ul>
+<h3 id="2-文件默认权限"><a href="#2-文件默认权限" class="headerlink" title="2.文件默认权限"></a>2.文件默认权限</h3><ul>
 <li>查看默认权限</li>
 </ul>
 <p>​		umask</p>
@@ -492,29 +497,6 @@
 <ul>
 <li>第一位0，表示文件特殊权限</li>
 <li>022 ，表示文件默认权限</li>
-</ul>
-<h3 id="3-ALC权限"><a href="#3-ALC权限" class="headerlink" title="3. ALC权限"></a>3. ALC权限</h3><p>用户身份不足时使用此权限，很少用到。</p>
-<h3 id="4-文件特殊权限"><a href="#4-文件特殊权限" class="headerlink" title="4. 文件特殊权限"></a>4. 文件特殊权限</h3><p>SetUID</p>
-<p>SetGID</p>
-<p>Sticky BIT</p>
-<h3 id="5-不可改变位权限"><a href="#5-不可改变位权限" class="headerlink" title="5. 不可改变位权限"></a>5. 不可改变位权限</h3><p><code>chattr [+-=] [选项] 文件或目录</code> # + 表示增加权限，- 表示删除权限，&#x3D;表示赋予权限</p>
-<p>选项</p>
-<ul>
-<li>i 等价于insert 插入# 对文件不允许删除、改名、添加、修改；对目录只能修改目录下的数据，不允许建立和删除文件。</li>
-<li>a 等价于append 追加 # 对文件只能对文件中增加数据，不能删除、修改数据；对目录只允许建立和修改文件，不允许删除。</li>
-</ul>
-<h3 id="6-sudo-权限"><a href="#6-sudo-权限" class="headerlink" title="6. sudo 权限"></a>6. sudo 权限</h3><ul>
-<li><p>root 把只能超级用户执行的命令赋予普通用户执行</p>
-</li>
-<li><p>sudo 的操作对象是系统命令</p>
-<p>sudo 的使用</p>
-<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nsis">visudo <span class="hljs-comment"># 实际修改的是/etc/sudoers文件</span><br><br><span class="hljs-comment"># 用户名 被管理主机的地址=（可使用的身份）授权命令（绝对路径）</span><br>root <span class="hljs-literal">ALL</span>=(<span class="hljs-literal">ALL</span>) <span class="hljs-literal">ALL</span><br><br><span class="hljs-comment"># %组名 被管理主机的地址=（可使用的身份）授权命令（绝对路径）</span><br>%wheel <span class="hljs-literal">ALL</span>=(<span class="hljs-literal">ALL</span>) <span class="hljs-literal">ALL</span><br></code></pre></td></tr></table></figure>
-
-<p>例子：让普通用户执行shutdown -r now</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">visudo <span class="hljs-comment"># 在文件末尾增加下面一行内容</span><br>py ALL=(ALL) <span class="hljs-regexp">/sbin/</span>shutdown -r now<br></code></pre></td></tr></table></figure>
-
-<p>例子：让普通用户执行passwd命令,<code>!/usr/bin/passwd root</code> 表示禁止执行的命令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">py ALL=<span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/passwd [A-Za-z]*, !/u</span>sr<span class="hljs-regexp">/bin/</span>passwd<span class="hljs-string">&quot;&quot;</span>, !<span class="hljs-regexp">/usr/</span>bin/passwd root<br></code></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -549,7 +531,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/Linux%E5%9F%BA%E7%A1%80/">#Linux基础</a>
       
     </div>
   
@@ -653,7 +635,7 @@
         aria-expanded="true"
       >
         运维
-        <span class="list-group-count">(3)</span>
+        <span class="list-group-count">(5)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -671,6 +653,24 @@
            class="list-group-item list-group-item-action
            active">
           <span class="category-post">Linux 文件管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2018/10/11/Linux/Linux%20%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90/" title="Linux 用户与权限"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 用户与权限</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2018/10/13/Linux/Linux%20%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" title="Linux 磁盘管理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 磁盘管理</span>
         </a>
       
     

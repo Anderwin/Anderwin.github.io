@@ -15,25 +15,25 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f8886">
-  <meta name="author" content="blinkfox">
+  <meta name="author" content="Keker">
   <meta name="keywords" content="木羊人 博客 Keker 运维 测试 开发">
   
-    <meta name="description" content="1. sort - 文本排序sort命令用于将文本文件的行排序。默认情况下，sort命令是按照字符串的字母顺序排序。 sort 的常用命令如下： 1234567891011121314# 将文本内容按字母顺序排序sort example.txt# 使用 -u 选项，移除所有重复行后排序sort -u example.txt# 使用 -n 选项，将令数字按数值的大小排序sort -n example">
+    <meta name="description" content="常用的硬盘管理命令 磁盘挂载  12345678910# 查询系统中已经挂载的设备mount# 依据配置文件 &#x2F;etc&#x2F;fstab 的内容，自动挂载mount -a# 挂载命令格式mount [-t 文件系统] [-o 特殊选项] 设备文件名 挂载点选项-t 文件系统：加入文件系统类型来指定挂载的类型，可以是ext3、ext4、iso9600-o 特殊选项：可以指定挂载的额外选项  1234567">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用Bash命令整理之文本处理">
-<meta property="og:url" content="http://www.keker.top/2018/10/11/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="Linux 磁盘管理">
+<meta property="og:url" content="http://www.keker.top/2018/10/13/Linux/Linux%20%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="木羊人-Keker">
-<meta property="og:description" content="1. sort - 文本排序sort命令用于将文本文件的行排序。默认情况下，sort命令是按照字符串的字母顺序排序。 sort 的常用命令如下： 1234567891011121314# 将文本内容按字母顺序排序sort example.txt# 使用 -u 选项，移除所有重复行后排序sort -u example.txt# 使用 -n 选项，将令数字按数值的大小排序sort -n example">
+<meta property="og:description" content="常用的硬盘管理命令 磁盘挂载  12345678910# 查询系统中已经挂载的设备mount# 依据配置文件 &#x2F;etc&#x2F;fstab 的内容，自动挂载mount -a# 挂载命令格式mount [-t 文件系统] [-o 特殊选项] 设备文件名 挂载点选项-t 文件系统：加入文件系统类型来指定挂载的类型，可以是ext3、ext4、iso9600-o 特殊选项：可以指定挂载的额外选项  1234567">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-10-11T14:05:00.000Z">
-<meta property="article:modified_time" content="2020-11-29T23:26:12.000Z">
+<meta property="article:published_time" content="2018-10-13T10:15:00.000Z">
+<meta property="article:modified_time" content="2022-07-19T07:40:20.184Z">
 <meta property="article:author" content="Keker">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Linux基础">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>常用Bash命令整理之文本处理 - 木羊人-Keker</title>
+  <title>Linux 磁盘管理 - 木羊人-Keker</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -220,13 +220,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/banner/default.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/banner1/13.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="常用Bash命令整理之文本处理"></span>
+            <span id="subtitle" data-typed-text="Linux 磁盘管理"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2018-10-11 22:05" pubdate>
-          2018年10月11日 晚上
+        <time datetime="2018-10-13 18:15" pubdate>
+          2018年10月13日 晚上
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          1.7k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          20 分钟
+          15 分钟
         
       </span>
     
@@ -308,36 +308,103 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">常用Bash命令整理之文本处理</h1>
+            <h1 style="display: none">Linux 磁盘管理</h1>
             
             
               <div class="markdown-body">
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
-                <h2 id="1-sort-文本排序"><a href="#1-sort-文本排序" class="headerlink" title="1. sort - 文本排序"></a>1. sort - 文本排序</h2><p><code>sort</code>命令用于将文本文件的行排序。默认情况下，<code>sort</code>命令是按照字符串的字母顺序排序。</p>
-<p>sort 的常用命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将文本内容按字母顺序排序</span><br><span class="hljs-built_in">sort</span> example.txt<br><br><span class="hljs-comment"># 使用 -u 选项，移除所有重复行后排序</span><br><span class="hljs-built_in">sort</span> -u example.txt<br><br><span class="hljs-comment"># 使用 -n 选项，将令数字按数值的大小排序</span><br><span class="hljs-built_in">sort</span> -n example.txt<br><br><span class="hljs-comment"># 使用 -r 选项，以倒序方式排序</span><br><span class="hljs-built_in">sort</span> -n -r example.txt<br><br><span class="hljs-comment"># 同时将 file1、file2 的内容排序</span><br><span class="hljs-built_in">sort</span> file1 file2<br></code></pre></td></tr></table></figure>
+                <h2 id="常用的硬盘管理命令"><a href="#常用的硬盘管理命令" class="headerlink" title="常用的硬盘管理命令"></a>常用的硬盘管理命令</h2><ol>
+<li>磁盘挂载</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 查询系统中已经挂载的设备</span><br><span class="hljs-built_in">mount</span><br><br><span class="hljs-comment"># 依据配置文件 /etc/fstab 的内容，自动挂载</span><br><span class="hljs-built_in">mount</span> <span class="hljs-literal">-a</span><br><span class="hljs-comment"># 挂载命令格式</span><br><span class="hljs-built_in">mount</span> [-<span class="hljs-type">t</span> 文件系统] [-<span class="hljs-type">o</span> 特殊选项] 设备文件名 挂载点<br>选项<br><span class="hljs-literal">-t</span> 文件系统：加入文件系统类型来指定挂载的类型，可以是ext3、ext4、iso9600<br><span class="hljs-literal">-o</span> 特殊选项：可以指定挂载的额外选项<br></code></pre></td></tr></table></figure>
 
-<h2 id="2-uniq-文本去重"><a href="#2-uniq-文本去重" class="headerlink" title="2.uniq - 文本去重"></a>2.uniq - 文本去重</h2><p><code>uniq</code>命令用于移除或发现文件中重复的条目。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 它将移除文件中重复的行并显示单一行</span><br><span class="hljs-built_in">uniq</span> example.txt<br><br><span class="hljs-comment"># 可以统计重复行出现的次数</span><br><span class="hljs-built_in">uniq</span> -c example.txt<br><br><span class="hljs-comment"># 使用 -d 选项，只显示文件中有重复的行并只显示一次</span><br><span class="hljs-built_in">uniq</span> -d example.txt<br><br><span class="hljs-comment"># 使用 -D 选项，显示文件中所有重复的行</span><br><span class="hljs-built_in">uniq</span> -D example.txt<br><br><span class="hljs-comment"># 使用 -u 选项，只显示文件中不重复的行</span><br><span class="hljs-built_in">uniq</span> -u example.txt<br><br><span class="hljs-comment"># 使用 -w 选项，限制 uniq 命令只比较每行的前 3 个字符是否重复</span><br><span class="hljs-built_in">uniq</span> -w 3 example.txt<br><br><span class="hljs-comment"># 使用 -s 选项，避免 uniq 命令比较每行的前 3 个字符，只比较后面的字符是否重复</span><br><span class="hljs-built_in">uniq</span> -s 3 example.txt<br><br><span class="hljs-comment"># 使用 -f 选项，避免 uniq 命令比较第一列的内容，只比较后面的字符是否重复</span><br><span class="hljs-built_in">uniq</span> -f 1 example.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 放入光盘</span><br><span class="hljs-comment"># 建立挂载点文件夹</span><br>mkdir <span class="hljs-regexp">/mnt/</span>cdrom<br><span class="hljs-comment"># 挂载光盘</span><br>mount <span class="hljs-regexp">/dev/</span>sr0  <span class="hljs-regexp">/mnt/</span>cdrom<br><br><span class="hljs-comment"># 光盘在 /mnt/cdrom 文件夹里</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="3-tr-替换或删除字符"><a href="#3-tr-替换或删除字符" class="headerlink" title="3.tr - 替换或删除字符"></a>3.tr - 替换或删除字符</h2><p><code>tr</code>命令主要用于删除文件中控制字符或进行字符转换。使用<code>tr</code>时要转换两个字符串：字符串 1 用于查询，字符串 2 用于处理各种转换。<code>tr</code>刚执行时，字符串 1 中的字符被映射到字符串 2 中的字符，然后转换操作开始。</p>
-<p><code>tr</code>命令的语法如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tr</span> [OPTION]... SET1 [SET2]<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 磁盘卸载m必须退出磁盘所在的目录</span><br>umount 设备文件名或挂载点<br>例如<br>umout <span class="hljs-regexp">/mnt/</span>cdrom<br></code></pre></td></tr></table></figure>
 
-<p>常用命令示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 若要将大括号转换为小括号</span><br><span class="hljs-built_in">tr</span> <span class="hljs-string">&#x27;&#123;&#125;&#x27;</span> <span class="hljs-string">&#x27;()&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 若要将大括号转换成方括号</span><br><span class="hljs-built_in">tr</span> <span class="hljs-string">&#x27;&#123;&#125;&#x27;</span> <span class="hljs-string">&#x27;\[]&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 若要将小写字符转换成大写，请输入：</span><br><span class="hljs-built_in">tr</span> <span class="hljs-string">&#x27;a-z&#x27;</span> <span class="hljs-string">&#x27;A-Z&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 若要创建一个文件中的单词列表</span><br><span class="hljs-built_in">tr</span> -cs <span class="hljs-string">&#x27;[:lower:][:upper:]&#x27;</span> <span class="hljs-string">&#x27;[\n*]&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 若要从某个文件中删除所有空字符</span><br><span class="hljs-built_in">tr</span> -d <span class="hljs-string">&#x27;\0&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 若要用单独的换行替换每一序列的一个或多个换行，请输入：</span><br><span class="hljs-built_in">tr</span> -s <span class="hljs-string">&#x27;\n&#x27;</span> &lt; textfile &gt; newfile<br><br><span class="hljs-comment"># 要以单个“#”字符替换 &lt;space&gt; 字符类中的每个字符序列</span><br><span class="hljs-built_in">tr</span> -s <span class="hljs-string">&#x27;[:space:]&#x27;</span> <span class="hljs-string">&#x27;[#*]&#x27;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="4-grep-查找字符串"><a href="#4-grep-查找字符串" class="headerlink" title="4.grep - 查找字符串"></a>4.grep - 查找字符串</h2><p><code>grep</code>命令用于搜索文本或指定的文件中与指定的字符串或模式相匹配的行。默认情况下，<code>grep</code>命令只显示匹配的行。</p>
-<p><code>grep</code>命令的语法如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep [OPTION]... PATTERN [FILE]...<br>grep [OPTION]... [-e PATTERN | -f FILE] [FILE]...<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># `grep`命令查找文件/etc/passwd 中帐号 blinkfox 的信息</span><br>grep blinkfox /etc/passwd<br><br><span class="hljs-comment"># 使用 -i 选项，强制 grep 命令忽略搜索关键字的大小写</span><br>grep -i blinkfox /etc/passwd<br><br><span class="hljs-comment"># 使用 -r 选项，可以递归搜索指定目录下的所有文件</span><br>grep -r blinkfox /etc/<br><br><span class="hljs-comment"># 使用 -w 选项，只匹配包含指定单词的行</span><br>grep -w blinkfox /etc/<br><br><span class="hljs-comment"># 使用 -c 选项，报告文件或文本中模式被匹配的次数</span><br>grep -c blinkfox /etc/passwd<br><br><span class="hljs-comment"># 使用 -n 选项，显示每一个匹配的行的行号</span><br>grep -n blinkfox /etc/passwd<br><br><span class="hljs-comment"># 使用 -v 选项，可以输出除匹配指定模式的行以外的其他所有行</span><br>grep -v blinkfox /etc/passwd<br><br><span class="hljs-comment"># 使用 --color 选项，在输出中将匹配的字符串以彩色的形式标出</span><br>grep --color blinkfox /etc/passwd<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>磁盘管理</li>
+</ol>
+<p>df -hT 查看磁盘空间大小</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ldif">df [选项] <br><br>选项<br><span class="hljs-literal">-</span>l 仅显示本地磁盘<br><span class="hljs-literal">-</span>a 显示所有文件系统<br><span class="hljs-literal">-</span>h 人性化显示磁盘容量<br><span class="hljs-literal">-</span>H 按照1000进制人性化统计<br><span class="hljs-literal">-</span>T 显示磁盘分区类型<br><span class="hljs-literal">-</span>t 显示指定类型文件的文件系统磁盘分区<br><span class="hljs-literal">-</span>x 不显示指定类型的文件系统磁盘分区<br><br><span class="hljs-comment"># 查看磁盘剩余空间</span><br>free [选项]<br><br></code></pre></td></tr></table></figure>
 
-<h2 id="5-diff-比较两个文件"><a href="#5-diff-比较两个文件" class="headerlink" title="5.diff - 比较两个文件"></a>5.diff - 比较两个文件</h2><p><code>diff</code>命令用于比较两个文件，并找出它们之间的不同。<code>diff</code>命令的语法如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">diff [OPTION]... from-file to-file<br></code></pre></td></tr></table></figure>
+<p>统计磁盘上的文件大小</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs diff">du [选项] [文件或目录]<br><span class="hljs-deletion">-b 以byte统计文件</span><br><span class="hljs-deletion">-k 以kb为单位统计文件</span><br><span class="hljs-deletion">-m 以MB为单位统计文件</span><br><span class="hljs-deletion">-h 人性化统计文件</span><br><span class="hljs-deletion">-H 按照1000进制人性化统计</span><br><span class="hljs-deletion">-s 指定统计目标</span><br><br>例如，查看文件夹的大小<br>du -sh Packages/<br></code></pre></td></tr></table></figure>
 
-<p>常用使用方式如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 比较两个文件</span><br>diff nsswitch.conf nsswitch.conf.org<br><br><span class="hljs-comment"># 使用 -w 选项，比较时忽略空格</span><br>diff -w nsswitch.conf nsswitch.conf.org<br><br><span class="hljs-comment"># 使用 -y 选项，以并排的格式输出两个文件的比较结果</span><br>diff -y nsswitch.conf nsswitch.conf.org<br><br>使用 -c 选项，以上下对比的格式输出两个文件的比较结果<br>diff -c nsswitch.conf nsswitch.conf.org<br></code></pre></td></tr></table></figure>
+<p>时间长不重启电脑 df -h 和du -sh 查看到的文件大小不相等，会差别很大。</p>
+<p>du和df的区别，du是统计文件大小的，统计的文件大小是准确的，df是用于统计磁盘空间大小的，统计的剩余空间是准确的。</p>
+<p>3.fsck文件系统修复命令</p>
+<p>一般不用此命名，此命令一般是系统启动时自动运行的。</p>
+<p>4.显示磁盘状态</p>
+<p>dump2fs 挂载目录</p>
+<p>例如</p>
+<p>dump2fs &#x2F;dev&#x2F;sda1</p>
+<p>4.查看文件的详细时间，用的不多</p>
+<p>stat 文件名</p>
+<p>5.查看文件类型</p>
+<p>file 文件名 # 判断文件类型</p>
+<p>type 命令名 # 判断命令类型</p>
+<h2 id="增加新硬盘，并分区"><a href="#增加新硬盘，并分区" class="headerlink" title="增加新硬盘，并分区"></a>增加新硬盘，并分区</h2><h3 id="1-查看系统所有硬盘及分区"><a href="#1-查看系统所有硬盘及分区" class="headerlink" title="1.查看系统所有硬盘及分区"></a>1.查看系统所有硬盘及分区</h3><p>fdisl -l </p>
+<h3 id="2-安装新硬盘，新建分区"><a href="#2-安装新硬盘，新建分区" class="headerlink" title="2.安装新硬盘，新建分区"></a>2.安装新硬盘，新建分区</h3><p> fdisk &#x2F;dev&#x2F;sdb 进入交互模式</p>
+<p>选项</p>
+<p>n 新建分区</p>
+<p>d 删除分区</p>
+<p>p 打印分区</p>
+<p>q 不保存退出</p>
+<p>w 保存退出</p>
+<p>v 验证分区表</p>
+<p>l 显示文件类型</p>
+<h4 id="新技术-parted-命令分区"><a href="#新技术-parted-命令分区" class="headerlink" title="新技术 parted 命令分区"></a>新技术 parted 命令分区</h4><p>fdisk 只能识别MBR分区表，有局限，parted支持GPT分区表</p>
+<p>MBR 分区表：支持最大分区2TB，最多支持4个主分区</p>
+<p>GPT 分区表：支持最大18EB分区，最多支持128个分区</p>
+<h3 id="3-格式化磁盘"><a href="#3-格式化磁盘" class="headerlink" title="3.格式化磁盘"></a>3.格式化磁盘</h3><p>mkfs -t ext4 &#x2F;dev&#x2F;sdb1</p>
+<p>mkfs -t ext4 &#x2F;dev&#x2F;sdb5</p>
+<p>mkfs -t ext4 &#x2F;dev&#x2F;sdb6</p>
+<p>……</p>
+<h3 id="4-挂载分区"><a href="#4-挂载分区" class="headerlink" title="4.挂载分区"></a>4.挂载分区</h3><p>建立挂载点</p>
+<p>mkdir &#x2F;disk1</p>
+<p>mkdir &#x2F;disk5</p>
+<p>mkdir &#x2F;disk6</p>
+<p>挂载（本次生效）</p>
+<p>mount &#x2F;dev&#x2F;sdb1 &#x2F;disk1</p>
+<p>mount &#x2F;dev&#x2F;sdb5 &#x2F;disk5</p>
+<p>mount &#x2F;dev&#x2F;sdb6 &#x2F;disk6</p>
+<p>查看</p>
+<p>mount 查看所有已经挂载的分区和光盘</p>
+<p>fdisk -l 查看系统分区</p>
+<p>df -h 查看分区占用百分比</p>
+<h3 id="5-设置系统启动后自动挂载"><a href="#5-设置系统启动后自动挂载" class="headerlink" title="5.设置系统启动后自动挂载"></a>5.设置系统启动后自动挂载</h3><p>vi &#x2F;etc&#x2F;fstab 此文件参与系统启动，如果修改错误，系统启动报错</p>
+<table>
+<thead>
+<tr>
+<th>设备文件名</th>
+<th>挂载点</th>
+<th>文件系统</th>
+<th>挂载选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;dev&#x2F;sdv1</td>
+<td>&#x2F;disk1</td>
+<td>ext3</td>
+<td>defaults 1 2</td>
+</tr>
+</tbody></table>
+<p>&#x2F;dev&#x2F;sdb1 &#x2F;disk1 ext4 defaults 0 0</p>
+<p>&#x2F;dev&#x2F;sdb5 &#x2F;disk5 ext4 defaults 0 0</p>
+<p>&#x2F;dev&#x2F;sdb6 &#x2F;disk6 ext4 defaults 0 0</p>
+<p>检测挂载是否正常,然后重启验证设置是否成功。</p>
+<p>mount -a</p>
+<p>如果报错，修复&#x2F;etc&#x2F;fstab 文件</p>
+<ul>
+<li><p>在本机登陆系统，挂载为读写权限，mount -o remount,rw &#x2F;</p>
+</li>
+<li><p>修改&#x2F;etc&#x2F;fstab文件错误后重启</p>
+</li>
+</ul>
+
                 
               </div>
             
@@ -355,7 +422,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="category-chain-item">软件工具</a>
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
   
   
 
@@ -370,7 +437,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/Linux%E5%9F%BA%E7%A1%80/">#Linux基础</a>
       
     </div>
   
@@ -382,20 +449,20 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>常用Bash命令整理之文本处理</div>
-      <div>http://www.keker.top/2018/10/11/Linux/常用Bash命令整理之文本处理/</div>
+      <div>Linux 磁盘管理</div>
+      <div>http://www.keker.top/2018/10/13/Linux/Linux 磁盘管理/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>blinkfox</div>
+          <div>Keker</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2018年10月11日</div>
+          <div>2018年10月13日</div>
         </div>
       
       
@@ -425,9 +492,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2018/10/13/Linux/%E5%B8%B8%E7%94%A8Bash%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%E4%B9%8B%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="常用Bash命令整理之其他常用命令">
+                      <a href="/2018/11/18/tools/git/" title="git 版本管理工具">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">常用Bash命令整理之其他常用命令</span>
+                        <span class="hidden-mobile">git 版本管理工具</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -435,8 +502,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2018/10/10/Linux/Linux%20%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Linux 软件安装">
-                        <span class="hidden-mobile">Linux 软件安装</span>
+                      <a href="/2018/10/11/Linux/Linux%20%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90/" title="Linux 用户与权限">
+                        <span class="hidden-mobile">Linux 用户与权限</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -454,6 +521,94 @@
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar category-bar" style="margin-left: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="运维"
+        id="heading-60eec86da0dbf4c99b14a66d4a37c1e3" role="tab" data-toggle="collapse" href="#collapse-60eec86da0dbf4c99b14a66d4a37c1e3"
+        aria-expanded="true"
+      >
+        运维
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-60eec86da0dbf4c99b14a66d4a37c1e3"
+           role="tabpanel" aria-labelledby="heading-60eec86da0dbf4c99b14a66d4a37c1e3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2018/10/09/Linux/Linux%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="Linux 文件管理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 文件管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2018/10/11/Linux/Linux%20%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90/" title="Linux 用户与权限"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 用户与权限</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2018/10/13/Linux/Linux%20%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" title="Linux 磁盘管理"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Linux 磁盘管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2018/10/10/Linux/Linux%20%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Linux 软件安装"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 软件安装</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/08/09/Linux/Windows7-32-Apache2-2%E5%8F%91%E5%B8%83Django-Angular%E9%A1%B9%E7%9B%AE/" title="Windows7_32 Apache2.2发布Django+Angular项目"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Windows7_32 Apache2.2发布Django+Angular项目</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
 
     </div>
   </div>
