@@ -18,23 +18,22 @@
   <meta name="author" content="Keker">
   <meta name="keywords" content="木羊人 博客 Keker 运维 测试 开发">
   
-    <meta name="description" content="遇坑记录 1.缺少MySQL-python-1.2.3.win32-py2.7.exe模块 2.mod_wsgi.so模块不可用 3.Aapache2.2配置文件格式">
+    <meta name="description" content="Centos6.x与Centos7.x的区别   基本项目 Centos 6.x Centos 7.x    文件系统 EXT4 单文件系统1EB 最大单文件16TB XFS单文件系统8EB 最大文件系统18TB最大单文件9EB   防火墙 iptables firewalld   内核 2.6x—— 3.10x——   默认数据库 MySQL MariaDB   服务管理 service sys">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows7_32 Apache2.2发布Django+Angular项目">
-<meta property="og:url" content="http://www.keker.top/2019/08/09/Linux/Windows7-32-Apache2-2%E5%8F%91%E5%B8%83Django-Angular%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:title" content="Centos6.x与Centos7.x的区别">
+<meta property="og:url" content="http://www.keker.top/2018/10/15/Linux/centos6-VS-centos7/index.html">
 <meta property="og:site_name" content="木羊人-Keker">
-<meta property="og:description" content="遇坑记录 1.缺少MySQL-python-1.2.3.win32-py2.7.exe模块 2.mod_wsgi.so模块不可用 3.Aapache2.2配置文件格式">
+<meta property="og:description" content="Centos6.x与Centos7.x的区别   基本项目 Centos 6.x Centos 7.x    文件系统 EXT4 单文件系统1EB 最大单文件16TB XFS单文件系统8EB 最大文件系统18TB最大单文件9EB   防火墙 iptables firewalld   内核 2.6x—— 3.10x——   默认数据库 MySQL MariaDB   服务管理 service sys">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-08-08T16:00:18.000Z">
-<meta property="article:modified_time" content="2022-07-15T07:42:11.642Z">
+<meta property="article:published_time" content="2018-10-15T12:15:00.000Z">
+<meta property="article:modified_time" content="2022-07-21T07:24:13.382Z">
 <meta property="article:author" content="Keker">
-<meta property="article:tag" content="环境部署">
-<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Windows7_32 Apache2.2发布Django+Angular项目 - 木羊人-Keker</title>
+  <title>Centos6.x与Centos7.x的区别 - 木羊人-Keker</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,13 +220,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/banner1/2.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/banner1/16.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Windows7_32 Apache2.2发布Django+Angular项目"></span>
+            <span id="subtitle" data-typed-text="Centos6.x与Centos7.x的区别"></span>
           
         </div>
 
@@ -238,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2019-08-09 00:00" pubdate>
-          2019年8月9日 凌晨
+        <time datetime="2018-10-15 20:15" pubdate>
+          2018年10月15日 晚上
         </time>
       </span>
     
@@ -250,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1k 字
         
       </span>
     
@@ -261,7 +260,7 @@
         
         
         
-          12 分钟
+          9 分钟
         
       </span>
     
@@ -309,40 +308,144 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Windows7_32 Apache2.2发布Django+Angular项目</h1>
+            <h1 style="display: none">Centos6.x与Centos7.x的区别</h1>
             
             
               <div class="markdown-body">
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2886962881&auto=1&height=90"></iframe>
-                <p>遇坑记录</p>
-<p>1.缺少MySQL-python-1.2.3.win32-py2.7.exe模块</p>
-<p>2.mod_wsgi.so模块不可用</p>
-<p>3.Aapache2.2配置文件格式</p>
-<span id="more"></span> 
+                <h2 id="Centos6-x与Centos7-x的区别"><a href="#Centos6-x与Centos7-x的区别" class="headerlink" title="Centos6.x与Centos7.x的区别"></a>Centos6.x与Centos7.x的区别</h2><table>
+<thead>
+<tr>
+<th>基本项目</th>
+<th>Centos 6.x</th>
+<th align="left">Centos 7.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件系统</td>
+<td>EXT4 <br />单文件系统1EB <br />最大单文件16TB</td>
+<td align="left">XFS<br />单文件系统8EB <br />最大文件系统18TB<br />最大单文件9EB</td>
+</tr>
+<tr>
+<td>防火墙</td>
+<td>iptables</td>
+<td align="left">firewalld</td>
+</tr>
+<tr>
+<td>内核</td>
+<td>2.6x——</td>
+<td align="left">3.10x——</td>
+</tr>
+<tr>
+<td>默认数据库</td>
+<td>MySQL</td>
+<td align="left">MariaDB</td>
+</tr>
+<tr>
+<td>服务管理</td>
+<td>service</td>
+<td align="left">systemctl（service和chkconfig）</td>
+</tr>
+<tr>
+<td>时间同步</td>
+<td>ntpq -p</td>
+<td align="left">chronyc sources</td>
+</tr>
+<tr>
+<td>修改时区</td>
+<td>&#x2F;etc&#x2F;sysconfig&#x2F;clock</td>
+<td align="left">timedatectl set-timezone Asia&#x2F;Shanghai</td>
+</tr>
+<tr>
+<td>修改语言</td>
+<td>&#x2F;etc&#x2F;sysconfig&#x2F;i18n</td>
+<td align="left">localectl set-locale LANG&#x3D;zh_CN.UTF-8</td>
+</tr>
+<tr>
+<td>主机名</td>
+<td>&#x2F;etc&#x2F;sysconfig&#x2F;network</td>
+<td align="left">&#x2F;etc&#x2F;hostname<br />hostnamectl set-hostname name</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>服务操作</th>
+<th>Centos6.x</th>
+<th>Centos7.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动服务</td>
+<td>sercice 服务名 start</td>
+<td>systemctl start   服务名</td>
+</tr>
+<tr>
+<td>关闭服务</td>
+<td>service 服务名 stop</td>
+<td>systemctl stop    服务名</td>
+</tr>
+<tr>
+<td>重启服务</td>
+<td>service 服务名 restart</td>
+<td>systemctl restart 服务名</td>
+</tr>
+<tr>
+<td>查看服务状态</td>
+<td>service 服务名 status</td>
+<td>systemctl status  服务名</td>
+</tr>
+<tr>
+<td>查看所有服务</td>
+<td>service –status-all</td>
+<td>systemctl list-units</td>
+</tr>
+<tr>
+<td>设置服务自启动</td>
+<td>chkconfig 服务名 on</td>
+<td>systemctl enable  服务名</td>
+</tr>
+<tr>
+<td>设置服务不自启动</td>
+<td>chkconfig 服务名 off</td>
+<td>systemctl disable 服务名</td>
+</tr>
+<tr>
+<td>看所有服务自启状态</td>
+<td>chkconfig –list</td>
+<td>systemctl list-unit-files</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>网络设置</th>
+<th>Centos6.x</th>
+<th>Centos7.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网卡名</td>
+<td>eth0</td>
+<td>ens33</td>
+</tr>
+<tr>
+<td>网络配置</td>
+<td>ifconfig &#x2F; setup</td>
+<td>ip &#x2F; nmtui</td>
+</tr>
+<tr>
+<td>网络服务</td>
+<td>network</td>
+<td>NetworkManager(network备用)</td>
+</tr>
+<tr>
+<td>网卡配置文件</td>
+<td>&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</td>
+<td>&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33</td>
+</tr>
+</tbody></table>
 
-<h3 id="一．安装依赖环境"><a href="#一．安装依赖环境" class="headerlink" title="一．安装依赖环境"></a>一．安装依赖环境</h3><p>1）pypa-setuptools-d9bb58331007 python setup.py install</p>
-<p>2）pip-1.4.1 python setup.py install</p>
-<p>3）django-1.6.2 python setup.py install</p>
-<p>4）django-rest-framework-2.3.14 python setup.py install</p>
-<p>5）MySQL-python-1.2.3.win32-py2.7.exe</p>
-<p>6）httpd-2.2.25-win32-x86-openssl-0.9.8y.msi</p>
-<h3 id="二、修改配置文件Apache（Apache2-2-conf-httpd-conf）"><a href="#二、修改配置文件Apache（Apache2-2-conf-httpd-conf）" class="headerlink" title="二、修改配置文件Apache（Apache2.2\conf\httpd.conf）"></a>二、修改配置文件Apache（Apache2.2\conf\httpd.conf）</h3><p>1.安装mod_wsgi.so模块。方法：拷贝mod_wsgi.so到Apache安装目录下的modules    文件夹中，（如：D:\Apache2.2\modules下）</p>
-<p>2.添加LoadModule wsgi_module modules&#x2F;mod_wsgi.so</p>
-<p>3.启用 Include conf&#x2F;extra&#x2F;httpd-vhosts.conf</p>
-<p>4.关闭默认端口监听 # Listen 80</p>
-<p>5.配置conf&#x2F;extra&#x2F;httpd-vhosts.conf文件</p>
-<p>​      后端配置信息</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Listen</span> <span class="hljs-number">8007</span><br><br><span class="hljs-section">&lt;VirtualHost *<span class="hljs-number">:8007</span>&gt;</span><br><br>    <span class="hljs-attribute">WSGIScriptAlias</span> / D:/PmsService/PmsService/wsgi.py<br><br>    <span class="hljs-attribute">DocumentRoot</span> <span class="hljs-string">&quot;D:/PmsService&quot;</span><br><br>    <span class="hljs-attribute">ServerName</span> www.PmsService.com <br><br>    <span class="hljs-attribute">Alias</span> /static D:/PmsService/static<br><br>    <span class="hljs-section">&lt;Directory <span class="hljs-string">&quot;D:/PmsService/PmsService&quot;</span>&gt;</span> <br><br>        <span class="hljs-attribute">Order</span> <span class="hljs-literal">allow</span>,<span class="hljs-literal">deny</span>  <br><br>        <span class="hljs-attribute">Allow</span> from <span class="hljs-literal">all</span><br><br>    <span class="hljs-section">&lt;/Directory&gt;</span>  <br><br><span class="hljs-section">&lt;/VirtualHost&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>  前端配置信息</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Listen</span> <span class="hljs-number">80</span><br><br><span class="hljs-section">&lt;VirtualHost *<span class="hljs-number">:80</span>&gt;</span><br><br>    <span class="hljs-attribute">DocumentRoot</span> <span class="hljs-string">&quot;D:/iegfms&quot;</span><br><br>    <span class="hljs-section">&lt;Directory  <span class="hljs-string">&quot;D:/iegfms&quot;</span>&gt;</span><br><br>        <span class="hljs-attribute">Order</span> <span class="hljs-literal">allow</span>,<span class="hljs-literal">deny</span>  <br><br>        <span class="hljs-attribute">Allow</span> from <span class="hljs-literal">all</span>   <br><br>    <span class="hljs-section">&lt;/Directory&gt;</span><br><br><span class="hljs-section">&lt;/VirtualHost&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="三、修改Django后端项目的配置信息"><a href="#三、修改Django后端项目的配置信息" class="headerlink" title="三、修改Django后端项目的配置信息"></a>三、修改Django后端项目的配置信息</h3><p>1.Wsgi.py文件</p>
-<p>Windows系统sys.path.append(“D:&#x2F;PmsService&#x2F;“),</p>
-<p>linu系统 sys.path.append(“&#x2F;var&#x2F;www&#x2F;html&#x2F;PmsService”)</p>
-<p>2.settings.py文件</p>
-<p>​        配置数据库信息DATABASES &#x3D; {}</p>
-<h3 id="四、导入对应的数据库"><a href="#四、导入对应的数据库" class="headerlink" title="四、导入对应的数据库"></a>四、导入对应的数据库</h3>
                 
               </div>
             
@@ -375,9 +478,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">#环境部署</a>
-      
-        <a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -389,8 +490,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows7_32 Apache2.2发布Django+Angular项目</div>
-      <div>http://www.keker.top/2019/08/09/Linux/Windows7-32-Apache2-2发布Django-Angular项目/</div>
+      <div>Centos6.x与Centos7.x的区别</div>
+      <div>http://www.keker.top/2018/10/15/Linux/centos6-VS-centos7/</div>
     </div>
     <div class="license-meta">
       
@@ -402,7 +503,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2019年8月9日</div>
+          <div>2018年10月15日</div>
         </div>
       
       
@@ -432,9 +533,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/27/tools/gitbook/" title="GitBook 你人生的第一本书">
+                      <a href="/2018/11/18/tools/git/" title="git 版本管理工具">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GitBook 你人生的第一本书</span>
+                        <span class="hidden-mobile">git 版本管理工具</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -442,8 +543,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/07/28/test/Android%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A6%82%E5%86%B5/" title="Android自动化测试概况">
-                        <span class="hidden-mobile">Android自动化测试概况</span>
+                      <a href="/2018/10/14/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" title="Linux 系统管理">
+                        <span class="hidden-mobile">Linux 系统管理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -497,7 +598,7 @@
       
         <a href="/2018/10/15/Linux/centos6-VS-centos7/" title="Centos6.x与Centos7.x的区别"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">Centos6.x与Centos7.x的区别</span>
         </a>
       
@@ -551,7 +652,7 @@
       
         <a href="/2019/08/09/Linux/Windows7-32-Apache2-2%E5%8F%91%E5%B8%83Django-Angular%E9%A1%B9%E7%9B%AE/" title="Windows7_32 Apache2.2发布Django+Angular项目"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Windows7_32 Apache2.2发布Django+Angular项目</span>
         </a>
       
