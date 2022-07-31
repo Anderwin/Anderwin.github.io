@@ -140,7 +140,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -167,7 +167,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -194,7 +194,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -221,7 +221,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -248,7 +248,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -275,7 +275,7 @@
     
     <categories>
       
-      <category>自动化运维</category>
+      <category>虚拟化技术</category>
       
     </categories>
     
@@ -1030,23 +1030,23 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2018/09/24/home/2018-hello-world/"/>
-    <url>/2018/09/24/home/2018-hello-world/</url>
+    <title>Shell</title>
+    <link href="/2018/09/24/Linux/shell/"/>
+    <url>/2018/09/24/Linux/shell/</url>
     
-    <content type="html"><![CDATA[<h1 id="念念不忘，必有回响"><a href="#念念不忘，必有回响" class="headerlink" title="念念不忘，必有回响"></a>念念不忘，必有回响</h1><p>欢迎打开自己的新blog，你好世界！</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="http://linuxcommand.org/images/Screenshot-Terminal.png" alt="shell"></p><h2 id="人机交互的中介"><a href="#人机交互的中介" class="headerlink" title="人机交互的中介"></a>人机交互的中介</h2><h3 id="常见shell"><a href="#常见shell" class="headerlink" title="常见shell"></a>常见shell</h3><ul><li><p>字符界面</p><ul><li><p>terminal</p><ul><li>黑窗口</li></ul></li></ul></li><li><p>图形界面</p><ul><li><p>windows窗口</p><ul><li>图形窗口</li></ul></li></ul></li><li><p>声控界面</p><ul><li><p>小爱同学</p><ul><li>只通过声音交流</li></ul></li></ul></li><li><p>真人界面</p><ul><li><p>傻妞</p><ul><li>拟人交互界面</li></ul></li></ul></li><li><p>主要作用</p><ul><li>利用定义好的指令间接的指挥计算机干活</li></ul></li></ul><h3 id="Bash基本功能"><a href="#Bash基本功能" class="headerlink" title="Bash基本功能"></a>Bash基本功能</h3><ul><li><p>alisa</p><ul><li>给命令起别名功能</li></ul></li><li><p>history</p><ul><li>查看历史命令</li></ul></li><li><p>｜</p><ul><li>管道符</li></ul></li><li><p>通配符</p><ul><li>？* [] [-] [^]</li></ul></li><li><p>grep</p><ul><li>搜索文本功能</li></ul></li><li><p>命令 &gt; 文件</p><ul><li>输出重定向</li></ul></li><li><p>多条命令</p><ul><li><p>命令1 ：命令2</p><ul><li>顺序执行</li></ul></li><li><p>命令1 &amp;&amp; 命令2</p><ul><li>前命令正确执行后执行后命令</li></ul></li><li><p>命令1 || 命令2 </p><ul><li>前一命令错误执行，才执行后一个命令</li></ul></li></ul></li><li><p>exit</p><ul><li>退出shell</li></ul></li><li><p>快捷键</p><ul><li><p>ctrl+a</p><ul><li>光标移到开头</li></ul></li><li><p>ctrl+e</p><ul><li>光标移到结尾</li></ul></li><li><p>ctrl+u</p><ul><li>向前剪切删除</li></ul></li><li><p>ctrl+k</p><ul><li>向后剪切删除</li></ul></li><li><p>ctrl+c</p><ul><li>终止当前命令</li></ul></li><li><p>ctrl+z</p><ul><li>当前进程后退运行</li></ul></li></ul></li></ul><h2 id="一门编程语言"><a href="#一门编程语言" class="headerlink" title="一门编程语言"></a>一门编程语言</h2><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><ul><li><p>字符串</p><ul><li>一串字符</li></ul></li><li><p>数组</p></li><li><p>文件</p></li><li><p>变量</p><ul><li><p>自定义变量</p><ul><li>局部变量</li><li>定义 x&#x3D;123</li><li>调用 $x</li><li>叠加 x&#x3D;”$a”456</li><li>查询 set -u</li><li>删除 unset x</li></ul></li><li><p>环境变量</p><ul><li><p>系统环境变量</p><ul><li><p>PATH</p><ul><li>命令路径</li></ul></li><li><p>PS1</p><ul><li>定义命令提示符</li></ul></li><li><p>LANG</p><ul><li>系统语言</li><li>纯字符界面支持中文:插件zhcon</li><li>远程连接工具支持中文</li></ul></li></ul></li><li><p>自定义环境变量</p><ul><li><p>全局变量</p></li><li><p>定义 export x&#x3D;123</p></li><li><p>查看</p><ul><li><p>查看所有</p><ul><li>set</li></ul></li><li><p>查看环境变量</p><ul><li>env</li></ul></li></ul></li><li><p>调用 $x</p></li><li><p>删除 unset</p></li></ul></li></ul></li><li><p>预定义变量</p><ul><li><p>位置参数变量</p><ul><li>$n $* $@ 向脚本程序传递参数</li></ul></li><li><p>$?</p><ul><li>最后一条命令的返回状态</li></ul></li><li><p>$$</p><ul><li>当前进程的进程号(PID)</li></ul></li><li><p>$!</p><ul><li>最后一个进程的进程号(PID)</li></ul></li></ul></li></ul></li></ul><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul><li><p>内置函数</p><ul><li>可忽略</li></ul></li><li><p>自定义函数</p><ul><li>很少用</li></ul></li><li><p>内置命令</p><ul><li><p>echo</p><ul><li>回声，输出内容到屏幕</li></ul></li><li><p>read</p><ul><li>接收键盘输入功能</li><li>-p 提示信息<br>-t 等待时间<br>-n 指定字符数<br>-s 隐藏输入</li></ul></li><li><p>declare</p><ul><li>声明变量类型</li></ul></li></ul></li><li><p>文本处理工具</p><ul><li><p>正则表达式</p></li><li><p>cut</p><ul><li>提取列数据</li></ul></li><li><p>sed</p><ul><li>提取行数据</li></ul></li><li><p>awk</p><ul><li>文本分析</li></ul></li><li><p>sort</p><ul><li>排序工具</li></ul></li></ul></li></ul><h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><ul><li><p>条件语句</p><ul><li><p>if语句</p><ul><li>if then</li></ul></li><li><p>双分支</p><ul><li>if then else</li></ul></li><li><p>多分支</p><ul><li>if elif else</li><li>case</li></ul></li></ul></li><li><p>循环语句</p><ul><li>for</li><li>while</li><li>until</li></ul></li><li><p>break</p></li><li><p>continuse</p></li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://linuxcommand.org/index.php">http://linuxcommand.org/index.php</a></p><p><a href="https://billie66.gitbooks.io/tlcl-cn/content/">https://billie66.gitbooks.io/tlcl-cn/content/</a></p><p><a href="https://www.gnu.org/software/bash/manual/bash.html">https://www.gnu.org/software/bash/manual/bash.html</a></p>]]></content>
     
     
     <categories>
       
-      <category>精神家园</category>
+      <category>运维</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>记录</tag>
+      <tag>shell</tag>
       
     </tags>
     
